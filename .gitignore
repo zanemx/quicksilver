@@ -1,3 +1,5 @@
+.DS_STORE
+bower.json
 *.py[cod]
 
 # C extensions
