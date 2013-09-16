@@ -1,0 +1,9 @@
+<h1>Quicksilver Characters</h1>
+{{#each this}}
+	<div data="{{id}}" class="characterFrame cursor">
+		<h3 style="margin-bottom:0;">{{this.name}}</h3>
+		<h4 style="margin-top:0;">level {{this.level}} {{ this.race}}</h4>
+	</div>
+{{/each}}
+
+<button id="createNew">Create New</button>

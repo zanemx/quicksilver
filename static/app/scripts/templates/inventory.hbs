@@ -1,0 +1,13 @@
+{{#each this}}
+	<div class="box mobile-grid-100">
+		<div class="mobile-grid-50">
+			<h4>{{name}}</h4>
+			<p>{{description}}</p>
+		</div>
+		<div class="mobile-grid-50">
+			<img class="iconFrame" style="margin-left:80%;" src="{{iconUrl}}">
+			<button name="{{name}}" price="{{price}}" class="marketItemButton" style="margin-left:60%; margin-top:20px;">Use</button>
+		</div>
+		<div class="clear"></div>
+	</div>
+{{/each}}

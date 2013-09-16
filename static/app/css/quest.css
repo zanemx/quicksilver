@@ -1,0 +1,12 @@
+#questView .questFrame{
+	background: rgba(0,0,0,0.5);
+	text-align: left;
+	padding:20px;
+	width: 80%;
+	margin: auto;
+	margin-top: 20px;
+	border: 3px solid rgb(92, 59, 0);
+}
+#questView #doQuest{
+	float:right;
+}

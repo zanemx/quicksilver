@@ -1,0 +1,17 @@
+#homeView .newsFrame{
+	background: rgba(0,0,0,0.5);
+	text-align: left;
+	padding:20px;
+	width: 80%;
+	margin: auto;
+	margin-top: 20px;
+	border: 3px solid rgb(92, 59, 0);
+}
+#homeView #profileImage{
+	width:80%;
+}
+#homeView .articleImage{
+	max-height: 100px;
+	float: left;
+	padding-right: 10px;
+}

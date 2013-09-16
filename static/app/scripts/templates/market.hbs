@@ -1,0 +1,13 @@
+{{#each this}}
+	<div class="box" style="position:relative;">
+
+		<h4>{{name}}</h4>
+		<h5>price {{price}}g</h5>
+		<p>{{description}}</p>
+
+		<img class="iconTopRight iconFrame" src="{{iconUrl}}">
+		<button style='margin-right:-12px;' class="marketItemButton floatRight" name="{{name}}" price="{{price}}">Buy</button>
+		
+		<div class="clear"></div>
+	</div>
+{{/each}}

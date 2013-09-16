@@ -1,0 +1,21 @@
+<div class="m20"></div>
+<h4>your guild</h4>
+<div class="guildFrame"><h2>{{name}}</h2>
+	<div style='margin-left:20px;'>
+		<h4>Level: {{level}}</h4>
+		<h4>Reputation: {{reputation}}</h4>
+		<br>
+		<h4>Members</h4>
+		<hr class='style-five'>
+		<pre>
+			{{#each members}}
+				{{this}}
+			{{/each}}
+		</pre>
+	</div>
+	<br>
+</div>
+
+<hr class='style-five'>
+<div class="m20"></div>
+<h4>all guilds</h4>

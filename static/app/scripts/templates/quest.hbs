@@ -1,0 +1,15 @@
+{{#each this}}
+	<div class="questFrame">
+		<h2>{{name}}</h2>
+		<h5>Status: {{stepCurrent}}/{{stepTotal}}</h5>
+		<p>{{description}}</p>
+
+		{{#if complete}}
+			<h4 style="color:green; text-align:right;">Complete</h4>			
+		{{else}}
+			<button id="doQuest" data="{{id}}" class="cursor">Do Quest</button>	
+		{{/if}}
+
+		<div style="clear:right;"></div>
+	</div>
+{{/each}}

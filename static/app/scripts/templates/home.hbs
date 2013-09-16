@@ -1,0 +1,14 @@
+<div style="margin-top:20px"></div>
+<div class="mobile-grid-100">
+	<h1>News</h1>
+	{{#each this}}
+		<div class="newsFrame mobile-grid-100">
+			<img class='articleImage' src="{{imageUrl}}" alt="">
+			<h5>{{title}}</h5>
+			{{!-- <date>{{created}}</date> --}}
+			<br>
+			<p>{{content}}</p>
+		</div>
+	{{/each}}	
+</div>
+

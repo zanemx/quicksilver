@@ -1,0 +1,13 @@
+#characterList{
+	margin:auto;
+	text-align: center;
+}
+#characterList .characterFrame{
+	width: 200px;
+	margin: auto;
+	height: 80px;
+	border: 1px solid burlywood;
+	background: #814304;
+	margin-bottom: 10px;
+	border-radius: 30px;
+}
