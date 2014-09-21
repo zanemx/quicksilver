@@ -1,0 +1,15 @@
+<br>
+<div class="mobile-grid-20">Rank</div>
+<div class="mobile-grid-20">Members</div>
+<div class="mobile-grid-60">Benefit</div>
+<div class="clear"></div>
+<br>
+{{#each this}}
+	<div class="{{className}}">
+		<div class="mobile-grid-20">{{rank}}</div>
+		<div class="mobile-grid-20">{{members}}+</div>
+		<div class="mobile-grid-60">{{desc}}</div>
+	</div>
+{{else}}
+	<h6>You don't have a guild yet.</h6>
+{{/each}}

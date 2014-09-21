@@ -1,9 +1,16 @@
-<h1>Quicksilver Characters</h1>
+<div class="m10"></div>
+<h4>Quicksilver Heros</h4>
+<br>
 {{#each this}}
-	<div data="{{id}}" class="characterFrame cursor">
-		<h3 style="margin-bottom:0;">{{this.name}}</h3>
-		<h4 style="margin-top:0;">level {{this.level}} {{ this.race}}</h4>
+	<div data="{{id}}" class="characterFrameBox cursor">
+		{{!-- <div style="float:left;" class="halfScale imageFrame npcs {{#toLower}}{{race}}_{{gender}}{{/toLower}}"></div> --}}
+		<div style="text-align:left;padding:14px;">
+			<h5 id="characterName">{{this.name}}</h5>
+			<h6 style="">Level {{this.level}} {{this.spec}} {{this.race}}</h6>
+		</div>
+		<div class="clear"></div>
 	</div>
 {{/each}}
-
+<div class="clear"></div>
+<br>
 <button id="createNew">Create New</button>

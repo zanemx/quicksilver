@@ -1,0 +1,29 @@
+<h6>Auction Your Resources</h6>
+<br>
+<p>Check regularly as the market prices will change. Market prices <span class="stat">(mp)</span> are listed below.</p>
+<br>
+<div class="professionFrame">
+	<div style="float:right; margin-left:20px;" class="qsicons skinning"><div style="margin-top:30px; text-align:right; color:white;margin-right:4px;">{{resources.leather}}</div></div>
+	<button class="sellResource" _id="leather">Sell</button>
+	<h5>Leather</h5>			
+	<div class="stat">mp {{auctionHouse.marketValues.leather}}g</div>
+	<div class="clear"></div>
+</div>
+
+<div class="professionFrame">
+	<div style="float:right; margin-left:20px;" class="qsicons mining"><div style="margin-top:30px; text-align:right; color:white;margin-right:4px;">{{resources.ore}}</div></div>
+	<button class="sellResource" _id="ore">Sell</button>
+	<h5>Ore</h5>			
+	<div class="stat">mp {{auctionHouse.marketValues.ore}}g</div>
+	<div class="clear"></div>
+</div>
+
+<div class="professionFrame">
+	<div style="float:right; margin-left:20px;" class="qsicons herbalism"><div style="margin-top:30px; text-align:right; color:white;margin-right:4px;">{{resources.herbs}}</div></div>
+	<button class="sellResource" _id="herbs">Sell</button>
+	<h5>Herbs</h5>			
+	<div class="stat">mp {{auctionHouse.marketValues.herbs}}g</div>
+	<div class="clear"></div>
+</div>
+
+<button id="auctionSellReload">Reload</button>

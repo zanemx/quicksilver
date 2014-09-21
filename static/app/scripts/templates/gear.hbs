@@ -1,1 +1,117 @@
-gear.hbs
+<br>
+<div class="grid-15 tablet-grid-15 mobile-grid-15 grid-parent">
+
+	{{!-- HEAD --}}
+	{{#if this.gear.head}}
+		<div style="text-align:center; class="grid-100 tablet-grid-100 mobile-grid-100"><div _id="{{this.gear.head.className}}" class="cursor  qsicons {{this.gear.head.grade}}{{this.gear.head.gearType}}{{this.gear.head.subType}} gearImageContainer"></div></div>
+	{{else}}
+		<div style="text-align:center; class="grid-100 tablet-grid-100 mobile-grid-100"><div class="cursor qsicons frame gearImageContainer"><div style="line-height:48px; font-size:x-small;" class="">head</div></div></div>
+	{{/if}}
+
+	{{!-- CHEST --}}
+	{{#if this.gear.chest}}
+		<div style="text-align:center; class="grid-100 tablet-grid-100 mobile-grid-100"><div _id="{{this.gear.chest.className}}" class="cursor  qsicons {{this.gear.chest.grade}}{{this.gear.chest.gearType}}{{this.gear.chest.subType}} gearImageContainer"></div></div>
+	{{else}}
+		<div style="text-align:center; class="grid-100 tablet-grid-100 mobile-grid-100"><div class="cursor qsicons frame gearImageContainer"><div style="line-height:48px; font-size:x-small;" class="">chest</div></div></div>
+	{{/if}}
+	
+	{{!-- LEGS --}}
+	{{#if this.gear.legs}}
+		<div style="text-align:center; class="grid-100 tablet-grid-100 mobile-grid-100"><div _id="{{this.gear.legs.className}}" class="cursor  qsicons {{this.gear.legs.grade}}{{this.gear.legs.gearType}}{{this.gear.legs.subType}} gearImageContainer"></div></div>
+	{{else}}
+		<div style="text-align:center; class="grid-100 tablet-grid-100 mobile-grid-100"><div class="cursor qsicons frame gearImageContainer"><div style="line-height:48px; font-size:x-small;" class="">legs</div></div></div>
+	{{/if}}
+</div>
+
+<div class="grid-70 tablet-grid-70 mobile-grid-70">
+	<div style="min-height:1px;" class="selectedItem mobile-push-10 mobile-grid-80 mobile-suffix-10">
+		{{#if this.selectedItem}}
+
+			<div style="margin:auto;" class="itemStats">
+				<div style="color:{{this.selectedItem.color}};">{{this.selectedItem.name}}</div>
+				<br>
+				<div class="note">level {{selectedItem.level}}</div>
+				{{#if this.selectedItem.intelligence}}<div class="stat">Intelligence {{this.selectedItem.intelligence}}</div>{{/if}}
+				{{#if this.selectedItem.strength}}<div class="stat">Strength {{this.selectedItem.strength}}</div>{{/if}}
+				{{#if this.selectedItem.defense}}<div class="stat">Defense {{this.selectedItem.defense}}</div>{{/if}}
+				{{#if this.selectedItem.endurance}}<div class="stat">Stamina {{this.selectedItem.endurance}}</div>{{/if}}
+				{{#if this.selectedItem.description}}<div class="">{{this.selectedItem.description}}</div>{{/if}}
+
+
+			</div>
+			<div class="clear"></div>
+			<div class="m10"></div>
+			<div style="margin:auto; text-align:center;">
+				{{!-- <button id="gearViewRemoveItem">Remove</button> --}}
+			</div>
+
+
+		{{else}}
+			<br>
+			<h5>No Item Equipped</h5>
+			<br>
+			<p>Visit the <a class="market">market</a> to purchase some gear or do some <a class="adventure">adventuring</a> to loot gear.</p>
+		{{/if}}
+	</div>
+</div>
+
+<div class="grid-15 tablet-grid-15 mobile-grid-15 grid-parent">
+	{{!-- HANDS --}}
+	{{#if this.gear.hands}}
+		<div style="text-align:center; class="grid-100 tablet-grid-100 mobile-grid-100"><div _id="{{this.gear.hands.className}}" class="cursor  qsicons {{this.gear.hands.grade}}{{this.gear.hands.gearType}}{{this.gear.hands.subType}} gearImageContainer"></div></div>
+	{{else}}
+		<div style="text-align:center; class="grid-100 tablet-grid-100 mobile-grid-100"><div class="cursor qsicons frame gearImageContainer"><div style="line-height:48px; font-size:x-small;" class="">gloves</div></div></div>
+	{{/if}}
+
+	{{!-- WEAPON --}}
+	{{#if this.gear.weapon}}
+		<div style="text-align:center; class="grid-100 tablet-grid-100 mobile-grid-100"><div _id="{{this.gear.weapon.className}}" class="cursor  qsicons {{this.gear.weapon.grade}}{{this.gear.weapon.gearType}}{{this.gear.weapon.subType}} gearImageContainer"></div></div>
+	{{else}}
+		<div style="text-align:center; class="grid-100 tablet-grid-100 mobile-grid-100"><div class="cursor qsicons frame gearImageContainer"><div style="line-height:48px; font-size:x-small;" class="">weapon</div></div></div>
+	{{/if}}
+	
+	{{!-- FEET --}}
+	{{#if this.gear.feet}}
+		<div style="text-align:center; class="grid-100 tablet-grid-100 mobile-grid-100"><div _id="{{this.gear.feet.className}}" class="cursor  qsicons {{this.gear.feet.grade}}{{this.gear.feet.gearType}}{{this.gear.feet.subType}} gearImageContainer"></div></div>
+	{{else}}
+		<div style="text-align:center; class="grid-100 tablet-grid-100 mobile-grid-100"><div class="cursor qsicons frame gearImageContainer"><div style="line-height:48px; font-size:x-small;" class="">boots</div></div></div>
+	{{/if}}
+</div>
+
+<div class="clear"></div>
+
+{{#if mount}}
+	<div style="text-align:center; class="grid-100 tablet-grid-100 mobile-grid-100"><div _id="mount" class="gearImageContainer cursor  qsicons {{mount.className}}"></div></div>
+{{else}}
+	<div style="text-align:center; class="grid-100 tablet-grid-100 mobile-grid-100"><div class="cursor qsicons frame gearImageContainer"><div style="line-height:48px; font-size:x-small;" class="">mount</div></div></div>
+	<h5 style="text-align:center;">Visit the <a class="market">market</a> to get a mount</h5>
+{{/if}}
+
+
+
+
+
+
+{{!-- MOUNT --}}
+{{!-- <div style="text-align:left; padding:10px;">
+	
+	{{#if this.mount}}
+		<h5 style="text-align:center;">Your Mount</h5>
+		<br>
+		{{#with this.mount}}
+			<div style="float:left;margin-right:10px;"><span class="qsicons {{className}}"></span></div>
+			<h5 style="color:{{color}}">{{title}}</h5>
+			<h6>Level {{level}}</h6>
+			<div style="float:left; text-align:left;">
+				<h6>{{description}}</h6>
+				{{#if strength}}<div class="stat">strength +{{this.strength}}</div>{{/if}}
+				{{#if intelligence}}<div class="stat">intelligence +{{this.intelligence}}</div>{{/if}}
+				{{#if endurance}}<div class="stat">stamina +{{this.endurance}}</div>{{/if}}
+				{{#if defense}}<div class="stat">defense +{{this.defense}}</div>{{/if}}
+			</div>
+		{{/with}}
+	{{else}}
+		<h5 style="text-align:center;">Visit the market to get a mount</h5>
+	{{/if}}	
+</div> --}}
+

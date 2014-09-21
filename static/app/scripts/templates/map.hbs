@@ -1,0 +1,63 @@
+<br>
+<h4 style="color:yellow;">{{map.prettyName}}</h4>
+{{#if map.map}}
+	{{!-- <div class="areaMap" style="background-image:url({{map.map}})"> --}}
+	{{#if map.backExit}}
+			<button backExit="{{map.backExit}}" id="mapBack">{{map.backExit}}</button>
+	{{/if}}
+	<button id="mapViewExplore">Explore</button>
+	<div class="clear"></div>
+	<br>
+	<div class="areaMap maps {{map.map}}">
+		<div class="cornerFrames"></div>
+		{{!-- create waypoints --}}
+		{{#each map.visibleExits}}
+			<div style="left:{{this.left}}%; top:{{this.top}}%;" exitName="{{this.name}}" class="mapExit waypoint">
+				<h5 style="font-size:xx-small; margin-top:8px;">{{name}}</h5>
+			</div>
+		{{/each}}
+	</div>
+
+{{else}}
+	{{#if map.backExit}}
+		<button backExit="{{map.backExit}}" id="mapBack">{{map.backExit}}</button>
+	{{/if}}
+
+	<br>
+	<br>
+
+	{{!-- GREETING --}}
+	{{#if map.greeting}}
+		<div class="npcGreeting">
+			<div class="clear"></div>
+
+			<div style="float:left; margin:10px;"><span class="npcs {{map.npc_image}}"></span></div>
+
+			{{!-- CURRENT CHAIN --}}
+			{{#if map.currentChain}}
+				{{#if map.currentQuest}}
+					<br>
+					<h5 style="text-align:left;">{{map.currentChain.name}}</h5>
+					<p style="padding:10px;text-align:left;text-indent:2em; margin:10px;"><span id="chainStartDescription">{{map.currentChain.startDescription}}</span></p>
+					<br>
+					<h6 style="padding:20px; text-align:left;" for="">Dungeon Unlocked - {{map.currentChain.dungeon}}</h6>
+
+					<div class="clear"></div>
+					<button id="doStart" data="{{map.currentChain.name}}" class="cursor">Enter</button>
+				{{else}}
+					<h5 style="text-align:left;">{{map.currentChain.name}}</h5>
+					<p style="padding:10px;text-align:left;text-indent:2em; margin:10px;">{{map.currentChain.endDescription}}</p>
+					<div class="clear"></div>
+					<button id="doFinishChain" data="{{map.currentChain.name}}" class="cursor">Ok</button>
+				{{/if}}
+			{{else}}
+				<p style="padding:10px;text-align:left;text-indent:2em;">{{map.greeting}}</p>
+			{{/if}}
+		</div>
+		<div id="mapViewQuestView" class="invisible"></div>
+	{{/if}}
+
+{{/if}}
+
+<div class="clear"></div>
+<br>

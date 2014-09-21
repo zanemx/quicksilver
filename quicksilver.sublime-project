@@ -2,7 +2,7 @@
 	"folders":
 	[
 		{
-			"path": "/Users/zanemx/Sites/quicksilver",
+			"path": "~/Documents/projects/quicksilver",
 			"file_exclude_patterns":["*sublime-workspace"]
 		}
 	],

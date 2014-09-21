@@ -1,23 +1,31 @@
-<div class="box">
-	<h2>Points Available - {{skillpoints}}</h2>
+<div class="mobile-grid-50 tablet-grid-50 grid-50">
+	<h6 _id="Gear Score" class="cursor attribute">Gear Score <span class="stat">{{gearscore}}</span></h6>
+	<h6 _id="Stamina Regen Rate" class="cursor attribute">Stamina Regen Rate <span class="stat">{{calculated.replenishRate}}</span><span class="note">(modified by mount)</span></h6>
+	<br>
+	<h6 _id="Strength" class="cursor attribute">Strength <span class="stat">{{calculated.strength}}</span></h6>
+	<h6 _id="Intelligence" class="cursor attribute">Intelligence <span class="stat">{{calculated.intelligence}}</span></h6>
+	<h6 _id="Defense" class="cursor attribute">Defense <span class="stat">{{calculated.defense}}</span></h6>
+	<h6 _id="Endurance" class="cursor attribute">Stamina <span class="stat">{{calculated.endurance}}</span></h6>
+	<h6 _id="HP" class="cursor attribute">HP <span class="stat">{{calculated.hp}}</span></h6>
+	<h6 _id="Damage" class="cursor attribute">Damage <span class="stat">{{calculated.damage}}</span></h6>
+	<br>
+	<h6 _id="Skillpoints" class="cursor attribute">Skillpoints <span id='skillpoints' class="stat">{{skillpoints}}</span></h6>
 </div>
-<div class="box">
-		<div class='mobile-grid-100'>
-			<h2 class="mobile-grid-50">Strength - {{strength}}</h2>
-			<button data="strength" class="attributesButton mobile-grid-10">+</button>
-		</div>
-		<div class='mobile-grid-100'>
-			<h2 class="mobile-grid-50">Intelligence - {{intelligence}}</h2>
-			<button data="intelligence" class="attributesButton mobile-grid-10">+</button>
-		</div>
-		<div class='mobile-grid-100'>
-			<h2 class="mobile-grid-50">Defense - {{defense}}</h2>
-			<button data="defense" class="attributesButton mobile-grid-10">+</button>
-		</div>
-		<div class='mobile-grid-100'>
-			<h2 class="mobile-grid-50">Endurance - {{endurance}}</h2>
-			<button data="endurance" class="attributesButton mobile-grid-10">+</button>
-		</div>
+<div class="mobile-grid-50 tablet-grid-50 grid-50">
+	<h6 style="color:yellow;" id="attributeTitle"></h6>
+	<br>
+	<p id="attributeContent">Select an attribute to learn more.</p>
+	<br>
+	<button id="addPoint" class="invisible">Add Point</button>
 	
 	<div class="clear"></div>
+	<br>
+	<div class="potions">
+		<h6 style="color:yellow;">Active Buffs</h6>
+		{{#each buffs}}
+			<div _id="{{this.id}}" style="width:48px;height:48px; float:left;" class="attributesViewPotionIcon iconFrame cursor qsicons {{this.className}}">
+				<div style="margin-top:30px; color:white;float:right;" class="turns">{{this.uses}}</div>
+			</div>
+		{{/each}}
+	</div>
 </div>

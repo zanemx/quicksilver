@@ -1,12 +1,48 @@
+#questView{
+	position: absolute;
+	top:0;
+	left:0;
+	background:rgba(0,0,0,0.9);
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
 #questView .questFrame{
 	background: rgba(0,0,0,0.5);
+	/*background: url(../../app/images/ui/maps/finkeepCastle.png);*/
 	text-align: left;
 	padding:20px;
-	width: 80%;
-	margin: auto;
-	margin-top: 20px;
+	/*width: 80%;*/
+	/*margin: auto;*/
+	margin-bottom: 5px;
 	border: 3px solid rgb(92, 59, 0);
+	border-radius: 10px;
+}
+#questView .questMap{
+	background:
+
+		url('../images/ui/corner.png') left top no-repeat,
+		url('../images/ui/cornerTopRight.png') right top no-repeat,
+		url('../images/ui/cornerBottomRight.png') right bottom no-repeat,
+		url('../images/ui/cornerBottomLeft.png') left bottom no-repeat,
+		url('../../app/images/ui/maps/finkeepCastle.png');
+	margin:auto;
+	width:580px;
+	height:270px;
 }
 #questView #doQuest{
 	float:right;
+}
+
+#progressbar {
+	background-color: rgb(68, 68, 68);
+  	border-radius: 4px; /* (height of inner div) / 2 + padding */
+  	padding: 3px;
+}
+
+#progressbar > div {
+   background-color: orange;
+   width: 0%;  /*Adjust with JavaScript */
+   height: 20px;
+   border-radius: 4px;
 }

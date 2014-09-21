@@ -1,0 +1,130 @@
+<nav class="mobile-grid-100 tablet-grid-100 grid-100">
+	<div class="mobile-grid-33 tablet-grid-33 grid-33" style="padding:0px;"><button style="width:100%; min-width:0px; margin:auto;">Chains</button></div>
+	<div class="mobile-grid-33 tablet-grid-33 grid-33" style="padding:0px;"><button style="width:100%; min-width:0px; margin:auto;">Quests</button></div>
+	<div class="mobile-grid-33 tablet-grid-33 grid-33" style="padding:0px;"><button style="width:100%; min-width:0px; margin:auto;">Overview</button></div>
+</nav>
+<br>
+<div id="chainsView" class="mobile-grid-100 tablet-grid-100 grid-100">
+	<h2>Quest Chain Editor</h2>
+	<br>
+	<div class="mobile-grid-100 tablet-grid-50 grid-50 grid-parent">
+		<label for="chainSelect">Select Chain To Edit</label>
+		<select class="mobile-grid-100 tablet-grid-100 grid-100" name="" id="chainSelect">
+			<option>Select Chain</option>
+			{{#each chains}}
+				<option value="{{this.name}}">{{this.name}}</option>
+			{{/each}}
+		</select>
+		
+		<label for="chainNpc">Select location for chain</label>
+		<select class="mobile-grid-100 tablet-grid-100 grid-100" id="chainNpc">
+			<option value="">Select Location</option>
+			{{#each locations}}
+				<option value="{{this}}">{{this}}</option>
+			{{/each}}
+		</select>
+		<div class="clear"></div>
+		<label for="chainName">Chain Name</label>
+		<input class="mobile-grid-100 tablet-grid-100 grid-100" placeholder="Chain Name" id="chainName" type="text">
+
+		{{!-- <label for="dungeonUnlocked">Dungeon Unlocked</label>
+		<select class="mobile-grid-100 tablet-grid-100 grid-100" id="dungeonUnlocked">
+			<option value="">Select Dungeon</option>
+			{{#each dungeons}}
+				<option value="{{this}}">{{this}}</option>
+			{{/each}}
+		</select> --}}
+
+		<div class="clear"></div
+		<label for="chainStart">Start chain description</label>
+		<textarea class="mobile-grid-100 tablet-grid-100 grid-100" placeholder="Chain Start Description" name="" id="chainStart" cols="30" rows="10"></textarea>
+		<div class="clear"></div>
+		<label for="chainEnd">End chain description</label>
+		<textarea class="mobile-grid-100 tablet-grid-100 grid-100" placeholder="Chain End Description" name="" id="chainEnd" cols="30" rows="10"></textarea>
+		<div class="clear"></div>
+		<label for="chainSubmit">Save or Create</label>
+		<button class="mobile-grid-100 tablet-grid-100 grid-100" id="chainSubmit">Submit</button>
+		<br>
+		<button class="mobile-grid-100 tablet-grid-100 grid-100" id="deleteChain">Delete Chain</button>
+	</div>
+	<div class="mobile-grid-100 tablet-grid-50 grid-50 grid-parent">
+		<br>
+		<h4>Quests In Chain</h4>
+		<div id="questsInChain"></div>
+		
+	</div>
+</div>
+
+<div id="questsView" class='mobile-grid-100 tablet-grid-100 grid-100'>
+	<h2>Quest Editor</h2>
+	<br>
+	<div class="mobile-grid-100 tablet-grid-50 grid-50 grid-parent">
+
+		<label for="questSelect">Select quest to edit</label>
+		<select class="mobile-grid-100 tablet-grid-100 grid-100" id="questSelect">
+			<option value="">Select Quest</option>
+			{{#each quests}}
+				<option value="{{this.name}}">{{this.name}}</option>
+			{{/each}}
+		</select>
+		
+		<label for="chainKeyName">Select chain for quest</label>
+		<select class="mobile-grid-100 tablet-grid-100 grid-100" id="chainKeyName">
+			<option value="">Select Chain</option>
+			{{#each chains}}
+				<option value="{{this.name}}">{{this.name}}</option>
+			{{/each}}
+		</select>
+		<label for="linkSelect">Select link id</label>
+		<select class="mobile-grid-100 tablet-grid-100 grid-100" id="linkSelect">
+			<option value="1">1</option>
+		</select>
+		<!-- <input placeholder="Chain link id" type="number" id="chainLink" name="Quest Link id" min="1"> -->
+		<div class="clear"></div>
+		<label for="questName">Quest Name</label>
+		<input class="mobile-grid-100 tablet-grid-100 grid-100" id="questName" placeholder='Quest Name' type="text">
+		<div class="clear"></div>
+		<label for="questAction">Quest Action</label>
+		<input class="mobile-grid-100 tablet-grid-100 grid-100" id="questAction" placeholder="Quest Action" type="text" value="Do Quest">
+
+		<div class="clear"></div>
+		<label for="">Quest Type</label>
+		<select class="mobile-grid-100 tablet-grid-100 grid-100" id="questType">
+			<option value="strength">strength</option>
+			<option value="intelligence">intelligence</option>
+			<option value="defense">defense</option>
+		</select>
+		
+		<div class="clear"></div>
+		<label for="description">Quest Description</label>
+		<textarea class="mobile-grid-100 tablet-grid-100 grid-100" placeholder="Quest Description" id='description' name="description" id="" cols="30" rows="10"></textarea>
+		
+		
+
+		<div class="clear"></div>
+		<label for="submitQuest">Save or Create</label>
+		<button class="mobile-grid-100 tablet-grid-100 grid-100" id="submitQuest">Submit</button>
+		<br>
+		<button class="mobile-grid-100 tablet-grid-100 grid-100" id="deleteQuest">Delete Quest</button>
+	</div>
+
+	<div class="mobile-grid-100 tablet-grid-50 grid-50 grid-parent">
+		<br>
+		<h4>Quests In Chain</h4>
+		<div id="questsInChain2"></div>
+	</div>
+</div>
+
+<div id="overviewView" class="mobile-grid-100 tablet-grid-100 grid-100">
+	<h1>Overview</h1>
+	<br>
+	{{#each chains}}
+		<h4 class="cursor clickableChain">{{name}}</h4>
+		<h6 style='color:rgb(172, 172, 172);'>Location {{location}}</h6>
+		<br>
+		{{#each quests}}
+			<h5 class="cursor clickableQuest">{{name}}</h5>
+		{{/each}}
+		<br>
+	{{/each}}
+</div>

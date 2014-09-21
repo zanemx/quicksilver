@@ -1,7 +1,7 @@
 define(['backbone'],function(Backbone){
 	return Backbone.Model.extend({
 		url:function(){
-			return '/quest/' + this.id;
+			return '/quest/' + this.id + "?toonkey=" + Backbone.config['toonkey'];
 		}
 	});
 });

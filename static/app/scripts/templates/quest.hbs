@@ -1,15 +1,84 @@
-{{#each this}}
-	<div class="questFrame">
-		<h2>{{name}}</h2>
-		<h5>Status: {{stepCurrent}}/{{stepTotal}}</h5>
-		<p>{{description}}</p>
 
-		{{#if complete}}
-			<h4 style="color:green; text-align:right;">Complete</h4>			
-		{{else}}
-			<button id="doQuest" data="{{id}}" class="cursor">Do Quest</button>	
-		{{/if}}
-
-		<div style="clear:right;"></div>
+<br>
+<br>
+{{#if isBoss}}
+	<h4 style="float:left;color:red;">BOSS</h4>
+	<img style='float:right;' src="static/app/images/characters/npc/boss/demon.png" alt="">
+	<div class="clear"></div>
+{{/if}}
+<h5 style="float:left;">{{name}}</h5>
+<h5 id="questProgressComplete" style="color:lime; display:none; text-align:right;">complete</h5>
+<div id="questProgressOutter">
+	<div id="questProgressInner">
+		<div>0%</div>
 	</div>
-{{/each}}
+</div>
+
+<div class="clear"></div>
+<br>
+<p>{{description}}</p>
+
+<div class="m80"></div>
+<div class="mobile-grid-100 grid-100 tablet-grid-100" id="cardView">
+	<div class="clear"></div>
+	<br>	
+	<div class='grid-mobile-100 grid-100 tablet-grid-100' id="cards">
+		
+		<div class="mobile-grid-33 grid-33 tablet-grid-33">
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="front">
+						<!-- front content -->
+						<div><span class="qsicons qsfbicon_50x50"></span></div>
+					</div>
+					<div class="back">
+						<!-- back content -->
+						<div class="questCard"><span class="qsicons commonchainmaillegs"></span></div>
+						
+					</div>
+				</div>
+			</div>
+		</div>					
+		<div class="mobile-grid-33 grid-33 tablet-grid-33">
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="front">
+						<!-- front content -->
+						<div><span class="qsicons qsfbicon_50x50"></span></div>
+					</div>
+					<div class="back">
+						<!-- back content -->
+						<div class="questCard"><span class="qsicons commonchainmaillegs"></span></div>
+						
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="mobile-grid-33 grid-33 tablet-grid-33">
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="front">
+						<!-- front content -->
+						<div><span class="qsicons qsfbicon_50x50"></span></div>
+					</div>
+					<div class="back">
+						<!-- back content -->
+						<div class="questCard"><span class="qsicons commonchainmaillegs"></span></div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<br>
+	{{!-- {{#if this.complete}} --}}
+		<button style="display:none" data="{{name}}" class="questViewDoFinish cursor">Finish</button>
+	{{!-- {{else}} --}}
+		<button data="{{name}}" class="questViewDoQuest cursor">{{action}}</button>
+	{{!-- {{/if}} --}}
+	<br>
+	<button id="cardViewBack">Back</button>
+	<button id="cardViewContinue" style="display:none;">Continue</button>
+</div>
+

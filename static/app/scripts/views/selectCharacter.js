@@ -11,7 +11,7 @@ define(['backbone', 'hbs!selectCharacter'],function(Backbone,template){
 
 		render:function(){
 			this.$el.html(this.model.get("first") + ' ' + this.model.get("last"));
-			$(document.body).html(this.el);
+			$(".wrapper").html(this.el);
 		}
 	});
 

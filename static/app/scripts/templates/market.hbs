@@ -1,13 +1,89 @@
+{{!-- <hr class="style-one">
+<div class="mobile-grid-33 tablet-grid-33 grid-33" style="padding:0px;"><button style="width:100%; min-width:0px; margin:auto;" class="market_navButton">Character</button></div>
+<div class="mobile-grid-33 tablet-grid-33 grid-33" style="padding:0px;"><button style="width:100%; min-width:0px; margin:auto;" class="market_navButton">Mount</button></div>
+<div class="mobile-grid-33 tablet-grid-33 grid-33" style="padding:0px;"><button style="width:100%; min-width:0px; margin:auto;" class="market_navButton">Potions</button></div>
+<div class="clear"></div>
+<br> --}}
+<button id="regenerate">Regenerate for <span id="marketRegenCost"></span> essence</button>
+<div class="clear"></div>
+<br>
 {{#each this}}
-	<div class="box" style="position:relative;">
+	
+	{{!-- POTION --}}
+	{{#ifCond this.type '==' 'potion'}}
+		<div class="marketItem">
+			<div style="margin-right:10px;float:left;"><span class="qsicons {{className}} {{grade}}-glow"></span></div>
+			<h6 style="float:left; color:{{color}}">{{title}}</h6>
+			<h6 style="float:right;">{{price}} {{currency}}</h6>
+			<br>
+			<div style="text-align:left; margin-left:10px; margin-top:6px; float:left">
+				{{#if strength}}<div class="stat">strength +{{this.strength}}</div>{{/if}}
+				{{#if intelligence}}<div class="stat">intelligence +{{this.intelligence}}</div>{{/if}}
+				{{#if endurance}}<div class="stat">stamina +{{this.endurance}}</div>{{/if}}
+				{{#if defense}}<div class="stat">defense +{{this.defense}}</div>{{/if}}
+			</div>
+			<button class="buyItem" _data="{{@index}}" style="float:right">Buy</button>
+			<div class="clear"></div>
+		</div>
+	{{/ifCond}}
 
-		<h4>{{name}}</h4>
-		<h5>price {{price}}g</h5>
-		<p>{{description}}</p>
+	{{!-- MOUNT --}}
+	{{#ifCond this.type '==' 'mount'}}
+		<div class="marketItem">
+			<div style="margin-right:10px;float:left;"><span class="qsicons {{className}} {{grade}}-glow"></span></div>
+			<h6 style="float:left; color:{{color}}">{{title}}</h6>
+			<h6 style="float:right;">{{price}} {{currency}}</h6>
+			<br>
+			<div style="float:left; text-align:left;">
+				<h6>{{description}}</h6>
+				{{#if strength}}<div class="stat">strength +{{this.strength}}</div>{{/if}}
+				{{#if intelligence}}<div class="stat">intelligence +{{this.intelligence}}</div>{{/if}}
+				{{#if endurance}}<div class="stat">stamina +{{this.endurance}}</div>{{/if}}
+				{{#if defense}}<div class="stat">defense +{{this.defense}}</div>{{/if}}
+			</div>
+			<div class="clear"></div>
+			<button class="buyItem" _data="{{@index}}" style="float:right">Buy</button>
+			<div class="clear"></div>
+		</div>
+	{{/ifCond}}
 
-		<img class="iconTopRight iconFrame" src="{{iconUrl}}">
-		<button style='margin-right:-12px;' class="marketItemButton floatRight" name="{{name}}" price="{{price}}">Buy</button>
-		
-		<div class="clear"></div>
-	</div>
+	{{!-- ARMOR --}}
+	{{#ifCond this.type '==' 'armor'}}
+		<div class="marketItem">
+			<div style="margin-right:10px;float:left;"><span class="qsicons {{className}} {{grade}}-glow"></span></div>
+			<h6 style="float:left; color:{{color}}">{{title}}</h6>
+			<h6 style="float:right;">{{price}} {{currency}}</h6>
+			<br>
+			<div style="text-align:left; margin-left:10px; margin-top:6px; float:left">
+				{{#if strength}}<div class="stat">strength +{{this.strength}}</div>{{/if}}
+				{{#if intelligence}}<div class="stat">intelligence +{{this.intelligence}}</div>{{/if}}
+				{{#if endurance}}<div class="stat">stamina +{{this.endurance}}</div>{{/if}}
+				{{#if defense}}<div class="stat">defense +{{this.defense}}</div>{{/if}}
+			</div>
+			<button class="buyItem" _data="{{@index}}" style="float:right">Buy</button>
+			<div class="clear"></div>
+		</div>
+	{{/ifCond}}
+
+	{{!-- WEAPON --}}
+	{{#ifCond this.type '==' 'weapon'}}
+		<div class="marketItem">
+			<div style="margin-right:10px;float:left;"><span class="qsicons {{className}} {{grade}}-glow"></span></div>
+			<h6 style="float:left; color:{{color}}">{{title}}</h6>
+			<h6 style="float:right;">{{price}} {{currency}}</h6>
+			<br>
+			<div style="text-align:left; margin-left:10px; margin-top:6px; float:left">
+				{{#if strength}}<div class="stat">strength +{{this.strength}}</div>{{/if}}
+				{{#if intelligence}}<div class="stat">intelligence +{{this.intelligence}}</div>{{/if}}
+				{{#if endurance}}<div class="stat">stamina +{{this.endurance}}</div>{{/if}}
+				{{#if defense}}<div class="stat">defense +{{this.defense}}</div>{{/if}}
+			</div>
+			<button class="buyItem" _data="{{@index}}" style="float:right">Buy</button>
+			<div class="clear"></div>
+		</div>
+	{{/ifCond}}
+
+	
+{{else}}
+	<h5>Sold Out</h5>
 {{/each}}

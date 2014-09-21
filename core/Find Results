@@ -1,0 +1,210 @@
+Searching 363 files for "lime"
+
+/Users/zanemx/Sites/quicksilver/core/constants.py:
+   54  GRADE_COLORS = {
+   55  	"common":"#BEBEBE",
+   56: 	"uncommon":"lime",
+   57  	"rare":"#7373E1",
+   58  	"epic":"#E916E9"
+
+/Users/zanemx/Sites/quicksilver/core/mobs.py:
+    7  MOB_GRADE_EPIC = 3
+    8  
+    9: GRADE_COLORS = ["white","lime","blue","purple"]
+   10  
+   11  class Mob(object):
+   ..
+   33  	'Roz Muck',
+   34  	'Carion Creeper',
+   35: 	'Slime Worm',
+   36  	'Zickorof',
+   37  	'Archer Bane'
+
+/Users/zanemx/Sites/quicksilver/quicksilver.sublime-project:
+    4  		{
+    5  			"path": "/Users/zanemx/Sites/quicksilver",
+    6: 			"file_exclude_patterns":["*sublime-workspace"]
+    7  		}
+    8  	],
+
+/Users/zanemx/Sites/quicksilver/quicksilver.sublime-workspace:
+  577  		}
+  578  	],
+  579: 	"build_system": "Packages/User/Browser.sublime-build",
+  580  	"command_palette":
+  581  	{
+  ...
+  787  		"/Users/zanemx/Sites/quicksilver/core/forge.py",
+  788  		"/Users/zanemx/Sites/quicksilver/dist/core/questdetails.py",
+  789: 		"/Users/zanemx/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+  790  		"/Users/zanemx/Sites/quicksilver/static/app/css/stats.css",
+  791  		"/Users/zanemx/Sites/quicksilver/static/app/notes.txt",
+  ...
+ 1776  			[
+ 1777  				"",
+ 1778: 				"/Users/zanemx/Sites/christmascats/christmascats.sublime-project"
+ 1779  			],
+ 1780  			[
+ 1781  				"apl",
+ 1782: 				"/Users/zanemx/Sites/AuctionPlumsLive/apl.sublime-project"
+ 1783  			],
+ 1784  			[
+ 1785  				"auction",
+ 1786: 				"/Users/zanemx/Sites/AuctionPlumsLive/apl.sublime-project"
+ 1787  			],
+ 1788  			[
+ 1789  				"quicsi",
+ 1790: 				"/Users/zanemx/Dropbox/- QS -/src/p12backend/quicksilver_backend.sublime-project"
+ 1791  			],
+ 1792  			[
+ 1793  				"quicsilver",
+ 1794: 				"/Users/zanemx/Dropbox/- QS -/src/p12backend/quicksilver_backend.sublime-project"
+ 1795  			],
+ 1796  			[
+ 1797  				"auc",
+ 1798: 				"/Users/zanemx/projects/Auction Leaderboard/apl/auctionLeaderBoard.sublime-project"
+ 1799  			],
+ 1800  			[
+ 1801  				"quicksilver",
+ 1802: 				"/Users/zanemx/Sites/quicksilver/quicksilver.sublime-project"
+ 1803  			],
+ 1804  			[
+ 1805  				"qu",
+ 1806: 				"/Users/zanemx/Sites/quicksilver/quicksilver.sublime-project"
+ 1807  			],
+ 1808  			[
+ 1809  				"quick",
+ 1810: 				"/Users/zanemx/Sites/quicksilver/quicksilver.sublime-project"
+ 1811  			],
+ 1812  			[
+ 1813  				"qs",
+ 1814: 				"/Users/zanemx/Dropbox/- QS -/src/p12backend/quicksilver_backend.sublime-project"
+ 1815  			],
+ 1816  			[
+ 1817  				"p12",
+ 1818: 				"/Users/zanemx/Dropbox/- QS -/src/p12backend/quicksilver_backend.sublime-project"
+ 1819  			],
+ 1820  			[
+ 1821  				"p2",
+ 1822: 				"/Users/zanemx/Dropbox/- QS -/src/p12backend/quicksilver_backend.sublime-project"
+ 1823  			],
+ 1824  			[
+ 1825  				"quic",
+ 1826: 				"/Users/zanemx/Dropbox/- QS -/src/p12backend/quicksilver_backend.sublime-project"
+ 1827  			],
+ 1828  			[
+ 1829  				"bodyspell",
+ 1830: 				"/Users/zanemx/Sites/flash/HealthTeacher/bodyspell/bodyspell.sublime-project"
+ 1831  			],
+ 1832  			[
+ 1833  				"hax",
+ 1834: 				"/Users/zanemx/Sites/flash/HealthTeacher/haxe_bodyspell/haxe_bodyspell.sublime-project"
+ 1835  			],
+ 1836  			[
+ 1837  				"body",
+ 1838: 				"/Users/zanemx/Sites/flash/HealthTeacher/bodyspell/bodyspell.sublime-project"
+ 1839  			],
+ 1840  			[
+ 1841  				"jdc",
+ 1842: 				"/Users/zanemx/Sites/jeannesdailycomet/jdc.sublime-project"
+ 1843  			],
+ 1844  			[
+ 1845  				"j",
+ 1846: 				"/Users/zanemx/Sites/jeannesdailycomet/jdc.sublime-project"
+ 1847  			]
+ 1848  		],
+
+/Users/zanemx/Sites/quicksilver/static/app/css/battle.css:
+   22  }
+   23  #battleView .progressInner{
+   24: 	background: rgb(113, 252, 113);
+   25  	width: 100%;
+   26  	height: inherit;
+
+/Users/zanemx/Sites/quicksilver/static/app/css/map.css:
+   49  }
+   50  #mapView #questProgressInner{
+   51: 	background: rgb(113, 252, 113);
+   52  	width: 0%;
+   53  	height: inherit;
+
+/Users/zanemx/Sites/quicksilver/static/app/css/match2game.css:
+   24  }
+   25  #match2gameView .iconSelected{
+   26: 	border: 1px dashed rgb(113, 252, 113);
+   27  }
+   28  #match2gameView .matched{
+
+/Users/zanemx/Sites/quicksilver/static/app/scripts/main.js:
+   97  	colorByRewardType:function(type){
+   98  		return {
+   99: 			exp:'rgb(113, 252, 113)',
+  100  			essence:'purple',
+  101  			energy:'#8686FF',
+  ...
+  107  		return {
+  108  			common:'white',
+  109: 			uncommon:'rgb(113, 252, 113)',
+  110  			rare:'#8686FF',
+  111  			epic:'purple'
+
+/Users/zanemx/Sites/quicksilver/static/app/scripts/templates/gear.hbs:
+   31  				<h4 style="color:{{this.selectedItem.color}};">{{this.selectedItem.prettyName}}</h4>
+   32  				<div class="m5"></div>
+   33: 				{{#if this.selectedItem.damage}}<h6 style="color:lime;">Damage {{this.selectedItem.damage}}</h6>{{/if}}
+   34: 				{{#if this.selectedItem.intelligence}}<h6 style="color:lime;">Intelligence {{this.selectedItem.intelligence}}</h6>{{/if}}
+   35: 				{{#if this.selectedItem.strength}}<h6 style="color:lime;">Strength {{this.selectedItem.strength}}</h6>{{/if}}
+   36: 				{{#if this.selectedItem.defense}}<h6 style="color:lime;">Defense {{this.selectedItem.defense}}</h6>{{/if}}
+   37: 				{{#if this.selectedItem.endurance}}<h6 style="color:lime;">endurance {{this.selectedItem.endurance}}</h6>{{/if}}
+   38  			{{!-- 	{{#each this.selectedItem}}
+   39  					<h6>{{@key}}:    <span class="stat">{{this}}</span></h6>
+
+/Users/zanemx/Sites/quicksilver/static/app/scripts/templates/quest.hbs:
+    8  {{/if}}
+    9  <h5 style="float:left;">{{name}}</h5>
+   10: <h5 id="questProgressComplete" style="color:lime; display:none; text-align:right;">complete</h5>
+   11  <div id="questProgressOutter">
+   12  	<div id="questProgressInner">
+
+/Users/zanemx/Sites/quicksilver/static/app/scripts/views/battle.js:
+   91  		onComplete:function(){
+   92  			if(this.battleMeta.winner == this.battleMeta.me.name){
+   93: 				AnimationManager.blit('YOU WIN!',"lime");
+   94  				AudioManager.play('Victory');
+   95  			}else{
+
+/Users/zanemx/Sites/quicksilver/static/app/scripts/views/game.js:
+  109  			vent.on('level_up',function(){
+  110  				var level = parseInt(this.model.get('level')) + 1;
+  111: 				AnimationManager.blit("Level Up! (" + level + ")", "lime");
+  112  			}.bind(this));
+  113  			this.statsView = new StatsView;
+
+/Users/zanemx/Sites/quicksilver/static/app/scripts/views/match2game.js:
+   85  			if($(".grid-icon:not(.matched)").length == 0){
+   86  
+   87: 				AnimationManager.blit("Quest Complete",'lime');
+   88  
+   89  				// _.each($(".grid-icon"),function(icon){
+
+/Users/zanemx/Sites/quicksilver/static/app/scripts/views/quest.js:
+  163  					delay += 300;
+  164  					_.delay(function(){
+  165: 						AnimationManager.blit("+" + r.exp + " Experience",'lime');
+  166  					}.bind(this),delay);
+  167  				}
+
+/Users/zanemx/Sites/quicksilver/static/sftp-config.json:
+    1  {
+    2      // The tab key will cycle through the settings when first created
+    3:     // Visit http://wbond.net/sublime_packages/sftp/settings for help
+    4      
+    5      // sftp, ftp or ftps
+    .
+   21      "remote_path": "/public_html/trunk/quicksilver",
+   22      "ignore_regexes": [
+   23:         "\\.sublime-(project|workspace)", "sftp-config(-alt\\d?)?\\.json",
+   24          "sftp-settings\\.json", "/venv/", "\\.svn", "\\.hg", "\\.git",
+   25          "\\.bzr", "_darcs", "CVS", "\\.DS_Store", "Thumbs\\.db", "desktop\\.ini",
+
+42 matches across 15 files

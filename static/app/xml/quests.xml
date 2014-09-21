@@ -1,0 +1,34 @@
+<npc name="Ren Kotan">
+	<chain>
+		<name>Welcome to the Kings Training Grounds</name>
+		
+		<start>We're so glad you've come to the aid of our lord and kingdom.  The corruption that has seeped it's way into our lands is a vile thing that we must repel!  I know you must be still a little disoriented from the trip so I'm here to be of assistance and help you get your bearing and on the right track.  Here is some information you might find useful.
+		</start>
+
+		<end>Thats about all I have to share with you.  I know you will fight well and bring justice to those who deserve it and help those who need it.  We thank you for coming to our aid in this time of need.  May you fare well and prosper through your efforts to help us regain peace.
+		</end>
+		
+		<quest>
+			<name>How you got here</name>
+			<description>Read about how the Rifter works and how it brought you from your homeland</description>
+			<stat>strength</stat>
+			<chainid>0</chainid>
+		</quest>
+
+		<quest>
+			<name>The Enemy has a name</name>
+			<description>You learn about Crowvel an evil sorcerer who has invaded this land from the south west.</description>
+			<stat>intelligence</stat>
+			<chainid>1</chainid>
+		</quest>
+
+		<quest>
+			<name>Understanding the realm</name>
+			<description>Here you find out about King Stavian and how he and his people have suffered and responded to this threat with solidarity and determination.</description>
+			<stat>intelligence</stat>
+			<chainid>2</chainid>
+		</quest>
+
+
+	</chain>
+</npc>

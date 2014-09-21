@@ -33,7 +33,7 @@ define(
 			// var t = this.template(this.model.toJSON());
 			this.$el.append(this.statsView.el);
 			// this.$el.html(t);
-			$(document.body).html(this.el);
+			$(".wrapper").html(this.el);
 		}
 	});
 

@@ -1,4 +1,14 @@
 #characterCreate{
 	margin:auto;
 	text-align:center;
+	/*position: relative;*/
+}
+#characterCreate footer{
+	position: absolute;
+	margin:0px 0 0 -126px;
+	left:50%;
+	bottom:10px;
+}
+#characterCreate .lineageFrame > p{
+	margin-bottom: 24px;
 }

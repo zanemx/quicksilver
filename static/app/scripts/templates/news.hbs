@@ -1,0 +1,16 @@
+<br>
+{{#each this}}
+	<div _key="{{key}}" class="alertFrame">
+		<h5>{{title}}</h5>
+		<br>
+		{{!-- <time>{{created}}</time> --}}
+		<p>{{content}}</p>
+		<br>
+		{{#each this.actions}}
+			<button>{{this}}</button>
+		{{/each}}
+		<div class="clear"></div>
+	</div>
+{{else}}
+	<h5 style="text-align:center;">No Alerts</h5>
+{{/each}}

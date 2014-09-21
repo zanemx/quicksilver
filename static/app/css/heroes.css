@@ -1,0 +1,23 @@
+/* ----------------------------------------------------
+   created with http://www.codeandweb.com/texturepacker 
+   ----------------------------------------------------
+   $TexturePacker:SmartUpdate:3ebdb72c95f967b0df626ebc978dd123$
+   ----------------------------------------------------
+
+   usage: <span class="{-spritename-} sprite"></span>
+
+   replace {-spritename-} with the sprite you like to use
+
+*/
+
+.heroes {display:inline-block; overflow:hidden; background-repeat: no-repeat;background-image:url(heroes.png);}
+
+.hero_dwarf_female {width:200px; height:300px; background-position: -800px -0px}
+.hero_dwarf_male {width:200px; height:300px; background-position: -600px -0px}
+.hero_dwarf_spirit {width:200px; height:300px; background-position: -400px -0px}
+.hero_elf_female {width:200px; height:300px; background-position: -200px -600px}
+.hero_elf_male {width:200px; height:300px; background-position: -200px -300px}
+.hero_elf_spirit {width:200px; height:300px; background-position: -200px -0px}
+.hero_human_female {width:200px; height:300px; background-position: -0px -600px}
+.hero_human_male {width:200px; height:300px; background-position: -0px -300px}
+.hero_human_spirit {width:200px; height:300px; background-position: -0px -0px}

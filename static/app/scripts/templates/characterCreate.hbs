@@ -1,36 +1,62 @@
-<h1>Quicksilver</h1>
-<label for="characterName">Name</label>
-<br>
-<input placeholder="Character Name" id="characterName" type='text'>
 
-<br>
-<br>
-
-<label>Gender</label>
-<br>
-<select  id="selectGender">
-	<option>Male</option>
-	<option>Spirit</option>
-	<option>Female</option>
-</select>
-
-<br>
+{{!-- <div class="mobile-grid-100 grid-100 tablet-grid-100">
+		<input style="text-align:center; width:100%;" placeholder="Character Name" id="characterName" type='text'>	
+</div> --}}
+<br><br><br>
+<div class="overview mobile-grid-50 tablet-grid-50 grid-50">
+	<p style="font-size:1em;">Your Hero is a <span style="color:lime;">Lineage</span> <span style="color:rgb(213, 0, 212);">Gender</span> <span style="color:yellow;">Class</span> named</p>
+	<input style="text-align:center; width:100%;" placeholder="Character Name" id="characterName" type='text'>
+	<button id='randomize'>Randomize</button>
+</div>
+<div class="mobile-grid-50 tablet-grid-50 grid-50">
+	<div><span id="characterImage" class="imageFrame npcs human_male"></span></div>
+</div>
+<div class="clear"></div>
+{{!-- <hr> --}}
 <br>
 
-<label>Race</label>
-<br>
-<select id="selectRace">
-	<option>Human</option>
-	<option>Elf</option>
-	<option>Dwarf</option>
-</select>
 
-<br><br>
+<div class="lineageFrame mobile-grid-33 grid-33 tablet-grid-33">
+	<label>Lineage</label>
+	<br>
+	<select id="selectRace">
+		<option value="human">Human</option>
+		<option value="elf">Elf</option>
+		<option value="dwarf">Dwarf</option>
+	</select>
+	<div class="clear"></div>
+	<br>
+	<p></p>
+</div>
+<div class="genderFrame mobile-grid-33 grid-33 tablet-grid-33">
+	<label>Gender</label>
+	<br>
+	<select  id="selectGender">
+		<option value="male">Male</option>
+		<option value="spirit">Spirit</option>
+		<option value="female">Female</option>
+	</select>
+	<div class="clear"></div>
+	<br>
+	<p></p>
+</div>
+<div class="classFrame mobile-grid-33 grid-33 tablet-grid-33">
+		
+	<label>Class</label>
+	<br>
+	<select id="selectClass">
+		<option value="warrior">Warrior</option>
+		<option value="druid">Druid</option>
+		<option value="wizard">Wizard</option>
+	</select>
+	<div class="clear"></div>
+	<br>
+	<p></p>
+</div>
 
-<img class="imageFrame" id="characterImage" alt="loading" src="static/app/images/characters/heroes/hero_human_male.png">
-<br><br>
+<footer>
+	<button id='cancel'>Cancel</button>
+	<button id="begin">Begin</button>
+</footer>
 
-
-
-<input id="submit" type='submit'>
-<button id='cancel'>Cancel</button>
+<div class="clear"></div>

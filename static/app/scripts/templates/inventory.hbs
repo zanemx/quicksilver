@@ -1,13 +1,47 @@
-{{#each this}}
-	<div class="box mobile-grid-100">
-		<div class="mobile-grid-50">
-			<h4>{{name}}</h4>
-			<p>{{description}}</p>
-		</div>
-		<div class="mobile-grid-50">
-			<img class="iconFrame" style="margin-left:80%;" src="{{iconUrl}}">
-			<button name="{{name}}" price="{{price}}" class="marketItemButton" style="margin-left:60%; margin-top:20px;">Use</button>
-		</div>
-		<div class="clear"></div>
+<div class="grid-50 mobile-grid-50 tablet-grid-50">
+
+	{{#if overfull}}
+		<h6 style="color:red;">Inventory Full</h6>
+	{{/if}}
+
+	{{#each this.inventory}}
+		{{#if this}}
+			<div _name="{{this.name}}" class="cursor inventoryItem">
+				<div class="iconFrame qsicons {{this.className}}"></div>
+			</div>
+		{{else}}
+			<div _name="null" class="inventoryItem">
+				<div class="iconFrame qsicons frame"></div>
+			</div>
+		{{/if}}
+	{{else}}
+		<h6>You don't have any inventory items yet. Go visit the market to see what Ken Rotan is selling.</h6>
+	{{/each}}
+	<div style="text-align:center;" class="grid-100 mobile-grid-100 tablet-grid-100"><button id="inventoryViewSort">Sort</button></div>
+</div>
+<div style="text-align:left;" class="grid-50 mobile-grid-50 tablet-grid-50">
+	<div class="qsicons backpack"></div>
+	{{!-- <div class="clear"></div> --}}
+	<div class="selectedItem">
+		<h6>Select an item</h6>
+		<small></small>
+		<div style="margin:10px;" id="inventoryViewItemStats"></div>
 	</div>
-{{/each}}
+	
+	<br>
+
+	<div class="current">
+		<h6 style="color:gray;">Currently Equipped</h6>
+		<h6></h6>
+		<small></small>
+		<div style="margin:10px;" id="inventoryViewCurrentItemStats"></div>
+	</div>
+
+	<div class="clear"></div>
+	<div class="m20"></div>	
+	<div class="inventoryButtons">
+		<button id="inventoryUseButton">use</button>
+		<button id="inventorySellButton">sell</button>
+	</div>	
+</div>
+

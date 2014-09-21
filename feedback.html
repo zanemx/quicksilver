@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <title>Quicksilver Feedback</title>
+       <!--  <link rel="stylesheet" href="static/app/css/reset.css"/>
+        <link rel="stylesheet" href="static/app/css/unsemantic-grid-responsive-tablet-no-ie7.css"> -->
+    </head>
+    <style>
+    	body{
+    		background:rgb(185, 177, 161);
+    		color:white;
+    	}
+    	p{
+    		
+    	}
+    </style>
+    <body>
+    	
+    	<h2>Quicksilver Feedback</h2>
+    	<div class="content"></div>
+    	<script>
+	    	(function(window,$){
+				window.log = function(m){console.log(m)};
+				var context = null;
+				$.get('ajax',{action:'getFeedback'},function(r){
+					var d = $.parseJSON(r);
+					context = d.feedback;
+					for(var i=0; i < context.length;i++){
+						var p = $(document.createElement('p')).text(context[i]);
+						$(".content").append(p);	
+					}
+				});
+			})(window,jQuery);
+		</script>
+    </body>
+</html>

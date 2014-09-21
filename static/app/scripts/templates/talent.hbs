@@ -1,0 +1,10 @@
+<h1>Talent View</h1>
+{{!-- context is trees --}}
+{{#each this}}
+	<h5>{{prettyName}}</h5>
+	<br>
+	{{#each this.tree}}
+		<h6>{{prettyName}}</h6>
+		<div class="qsicons {{className}}"></div>
+	{{/each}}
+{{/each}}

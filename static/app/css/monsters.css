@@ -1,0 +1,33 @@
+/* ----------------------------------------------------
+   created with http://www.codeandweb.com/texturepacker 
+   ----------------------------------------------------
+   $TexturePacker:SmartUpdate:d9b23df7b27f36c200c57470c930de2e:1/1$
+   ----------------------------------------------------
+
+   usage: <span class="{-spritename-} sprite"></span>
+
+   replace {-spritename-} with the sprite you like to use
+
+*/
+
+.monsters {display:inline-block; overflow:hidden; background-repeat: no-repeat;background-image:url(monsters.png);}
+
+.bird {width:85px; height:128px; background-position: -786px -2px}
+.bird6 {width:128px; height:113px; background-position: -912px -117px}
+.bird_boss {width:85px; height:128px; background-position: -699px -2px}
+.bloodbeetle {width:128px; height:113px; background-position: -912px -2px}
+.bloodworm {width:128px; height:113px; background-position: -782px -132px}
+.bloodworm_1 {width:85px; height:128px; background-position: -612px -2px}
+.bull {width:86px; height:128px; background-position: -2px -2px}
+.cowweed9c {width:128px; height:113px; background-position: -652px -132px}
+.detached_head {width:85px; height:128px; background-position: -525px -2px}
+.dreamlizard {width:128px; height:113px; background-position: -522px -132px}
+.hound {width:85px; height:128px; background-position: -438px -2px}
+.kids {width:85px; height:128px; background-position: -351px -2px}
+.lion {width:85px; height:128px; background-position: -264px -2px}
+.nymph {width:85px; height:128px; background-position: -177px -2px}
+.pincerbug {width:128px; height:113px; background-position: -392px -132px}
+.plaguerat {width:128px; height:113px; background-position: -262px -132px}
+.stormhorse {width:128px; height:113px; background-position: -132px -132px}
+.trog {width:128px; height:113px; background-position: -2px -132px}
+.wolf {width:85px; height:128px; background-position: -90px -2px}

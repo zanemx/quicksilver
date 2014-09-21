@@ -1,0 +1,4 @@
+#attributesView{}
+#attributesView .attribute:hover{
+	text-shadow: 0 0 0.2em black, 0 0 0.2em white,0 0 0.2em white;
+}

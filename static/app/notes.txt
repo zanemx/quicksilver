@@ -1,0 +1,7 @@
+gold crit ranges 
+1-70		Normal
+71-90	Crit 1
+91-99	Crit 2
+100		Crit 3
+
+x1  x2  x4  x8

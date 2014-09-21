@@ -1,0 +1,43 @@
+<br>
+<h5>Create Your Party</h5>
+<br>
+<div class="mobile-grid-33 tablet-grid-33 grid-33">
+	<div class="npcs imageFrame {{className}}"></div>
+	<h5>{{name}}</h5>
+	<br>
+	<h6>{{spec}}</h6>
+	<h6>gearscore {{gearscore}}</h6>
+</div>
+{{#each party}}
+	<div _name="{{name}}" class="partyFrame cursor mobile-grid-33 tablet-grid-33 grid-33">
+		<div style="width:100px; height:150px;" class="npcs {{className}} imageFrame"></div>
+		<h5>{{name}}</h5>
+		<br>
+		<h6>{{spec}}</h6>
+		<h6>gearscore {{gearscore}}</h6>
+	</div>
+
+{{else}}
+	<div class="partyFrame cursor mobile-grid-33 tablet-grid-33 grid-33">
+		<div style="width:100px; height:150px;" class="npcs blank imageFrame"></div>
+		<h6>tap to choose</h6>
+	</div>
+	<div class="partyFrame cursor mobile-grid-33 tablet-grid-33 grid-33">
+		<div style="width:100px; height:150px;" class="npcs blank imageFrame"></div>
+		<h6>tap to choose</h6>
+	</div>
+{{/each}}
+
+{{#if addFrame}}
+	<div class="partyFrame cursor mobile-grid-33 tablet-grid-33 grid-33">
+		<div style="width:100px; height:150px;" class="npcs blank imageFrame"></div>
+		<h6>tap to choose</h6>
+	</div>
+{{/if}}
+
+<div class="clear"></div>
+<br>
+<h6>Group Gear Score {{group_gearscore}}</h6>
+<br>
+<button class="inviteFriends">Invite Friends</button>
+

@@ -1,33 +1,24 @@
 #!/usr/bin/env python
-import webapp2
-from google.appengine.ext import db
-import json
 import os
 import webapp2
-import logging
-import time
-from datetime import datetime,timedelta,tzinfo
-from basehandler import BaseHandler
-from ajax import Ajax
-from google.appengine.api import urlfetch
 from google.appengine.ext.webapp import template
-from controllers import *
-
-import logging
+from core.basehandler import BaseHandler
+from core.ajax import Ajax
+from core.questmanager import QuestManager
+# from core.questmaker import QuestMaker
 
 
 class MainPage(BaseHandler):
-
 	def get(self):
-		# self.response.headers("content-type")
 		path = os.path.join(os.path.dirname(__file__), 'index.html')
-		# logging.info(path)
 		self.response.out.write(template.render(path, None))
 
-class Admin(BaseHandler):
-	 def get (self):
-		tp = jinja_environment.get_template('admin.html')
-		self.response.out.write(tp.render({}))
+class Feedback(BaseHandler):
+	def get(self):
+		path = os.path.join(os.path.dirname(__file__), 'feedback.html')
+		self.response.out.write(template.render(path, None))
+
+
 		
 config = {}
 config['webapp2_extras.sessions'] = {
@@ -35,16 +26,13 @@ config['webapp2_extras.sessions'] = {
 }
 app = webapp2.WSGIApplication(
 	[
+
+		# ('/questmaker',QuestMaker),
+
 		('/ajax',Ajax),
-		('/admin',Admin),
-		('/user\/?([a-zA-Z0-9-_]*)', UserHandler),
-		('/character', CharacterHandler),
-		('/character\/?([a-zA-Z0-9-_]*)', CharacterHandler),
-		('/inventory\/?([a-zA-Z0-9-_]*)', InventoryHandler),
-		('/guild\/?([a-zA-Z0-9-_]*)', GuildHandler),
-		('/quest\/?([a-zA-Z0-9-_]*)', QuestHandler),
-		('/news', NewsHandler),
 		('/', MainPage),
+		('/feedback',Feedback),
+		('/questmanager',QuestManager)
 	],
 	config=config,
 	debug=True

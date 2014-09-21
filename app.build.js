@@ -1,0 +1,10 @@
+(
+	{
+		appDir:"static/app",
+		baseUrl:"scripts",
+		dir:"dist/static/app",
+		mainConfigFile:"static/app/scripts/main.js",
+		name:"main",
+		optimizeCss:"standard"
+	}
+)

@@ -1,0 +1,42 @@
+<div class="mobile-grid-60 tablet-grid-60 grid-60">
+	{{#with this}}
+
+		<h5>{{name}}</h5>
+		<br>
+		<div>
+			<h6>Guild Leader <span style="color:yellow;">-</span>  {{leader.name}}</h6>
+			<h6>Guild Size <span style="color:yellow;">-</span> <span>{{count}}</span></h6>
+			<h6>Guild Rank <span style="color:yellow;">-</span> <span>{{rank}}</span></h6>
+		</div>
+		{{!-- <hr class="style-one" style="margin:10px;"> --}}
+		<br><br>
+
+		<h5>Members</h5>
+		<div class="clear"></div>
+		<br>
+		{{#each members}}
+			<h6 class="mobile-grid-50">{{this}}</h6>
+		{{/each}}
+	{{/with}}
+</div>
+
+<div style="border-left:1px dashed rgb(100,100,100);" class="mobile-grid-40 tablet-grid-40 grid-40">
+	<h5>My Guilds</h5>
+	<br>
+	{{!-- {{#each guilds}} --}}
+		<h6 _id="{{name}}" class="guildTitle cursor">{{name}}</h6>
+	{{!-- {{/each}} --}}
+
+	{{!-- <hr class="style-one" style="margin:10px;"> --}}
+	<br><br>
+	<h5>Controls</h5>
+	<br>
+	<button id="invite">Invite</button>
+	{{!-- <button id="createNewGuild">Create Guild</button> --}}
+	{{#if isLeader}}
+		<button id="kickMember">Kick Member</button>
+		<button id="disbandGuild">Disband</button>
+	{{else}}
+		<button id="leaveGuild">Leave Guild</button>
+	{{/if}}
+</div>

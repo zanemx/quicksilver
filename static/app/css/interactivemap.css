@@ -1,0 +1,9 @@
+.mapcon{
+	width:100%;
+	height:200px;
+	overflow:hidden;
+	position: relative;
+}
+.mapcon > img{
+	position: absolute;
+}

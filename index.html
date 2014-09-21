@@ -2,13 +2,71 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <title>Quicksilver - Rise of Crowvel</title>
         <link rel="stylesheet" href="static/app/css/reset.css"/>
-        <link rel="stylesheet" href="static/app/css/unsemantic-grid-mobile.css"/>
+        <link rel="stylesheet" href="static/app/css/unsemantic-grid-responsive-tablet-no-ie7.css">
         <link rel="stylesheet" href="static/app/css/main.css"/>
+        <script type="text/javascript" src="/_ah/channel/jsapi"></script>
+        <script language="javascript" type="text/javascript" src="http://img.mocospace.com.edgesuite.net/wk/js/opensocial/opensocial.js"></script>
         <script data-main="static/app/scripts/main.js" src="static/app/scripts/vendor/requirejs/require.js"></script>
     </head>
     <body>
-    </body>    
+
+       <!--  <canvas id="qscanvas">
+            <h5>canvas element not supported</h5>
+        </canvas> -->
+
+        <div class="popover">
+            <div id="popoverIcon" class="iconFrame qsicons qs_fb_icon_50x50"></div>
+            <h4 id='popoverTitle'>Title of Nice Item </h4>
+            <p id="popoverContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores tempore in earum non cum dicta placeat impedit. Facere, dolor, fuga, nostrum, numquam qui alias culpa officia non eveniet commodi eaque.</p>
+            <div class="clear"></div>
+            <br>
+            <div style="margin:auto;text-align:center;">
+                <button id="popoverCancel">cancel</button>
+                <button id="popoverOk">ok</button>
+            </div>
+        </div>
+
+        <div class="lootFrame" style="display:none;">
+            <div class="lootFrameIcon qsicons qs_fb_icon_50x50"></div>
+            <p class="lootFrameContent">Lorem ipsum dolor sit amet, consectetur</p>
+            <div class="clear"></div>
+            <br>
+            <div class="lootFrameStats"></div>
+            <div class="clear"></div>
+            <br>
+            <button class="lootFrameOkButton">ok</button>
+            <div class="clear"></div>
+        </div>
+
+        <div class="itemDetailsFrame" style="display:none;">
+            <div class="itemDetailsFrameIcon qsicons qs_fb_icon_50x50"></div>
+            <p class="itemDetailsFrameContent">Lorem ipsum dolor sit amet, consectetur</p>
+            <div class="clear"></div>
+            <br>
+            <div class="itemDetailsFrameStats"></div>
+            <div class="clear"></div>
+            <br>
+            <button class="itemDetailsFrameOkButton">ok</button>
+            <div class="clear"></div>
+        </div>
+
+        <div id="explorePopover" style="display:none;">
+            <h5 id="explorePopoverTitle">Title</h5>
+            <br>
+            <h6 id="explorePopoverXp" style="color:purple;">xp</h6>
+            <h6 id="explorePopoverGold" style="color:yellow">gold</h6>
+            <br>
+            <p id="explorePopoverContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, eius, quod facilis repellat aliquam labore assumenda in molestias similique optio cumque doloremque ducimus perspiciatis mollitia vel doloribus tenetur officiis maiores.</p>
+            <br>
+            <button style="float:right" id='explorePopoverOk'>Ok</button>
+            <div class="clear"></div>
+        </div>
+
+        <div class="loadingIndicator" style="display: none;"></div>
+    </body>
 </html>

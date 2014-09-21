@@ -1,39 +1,48 @@
-define(['backbone','handlebars','text!templates/duel.hbs','ajax'],function(Backbone,Handlebars,template,ajax){
+define(['backbone','handlebars','text!templates/duel.hbs','ajax','views/battle'],function(Backbone,Handlebars,template,ajax,BattleView){
 	return Backbone.View.extend({
 		id:'duelView',
-		className:'mobile-grid-100',
+		className:'grid-100 tablet-grid-100 mobile-grid-100 grid-parent',
 		template:Handlebars.compile(template),
-		context:{},
 		events:{
-			"click .doBattleBtn":"onDoBattle"
+			'click .doBattleButton':'onDoBattle'
 		},
 		onDoBattle:function(e){
-			var target =$(e.currentTarget).attr('name');
-			ajax.send({action:'doBattle',enemy:target,toonName:this.model.get('name')},function(r){
-				log(r);
-				if(r.winner == this.model.get("name")){
-					alert('you win!');
-				}else{
-					alert("you lose");
+
+			if(!this.model.useEnergy()){
+				this.outOfEnergy();
+				return;
+			}
+
+			var el = $(e.currentTarget);
+			var keyid = el.attr('_id');
+
+			var params = {
+				action:'doDuel',
+				enemy_keyid:keyid
+			}
+			ajax.send(params,function(r){
+				if(!r.success){
+					this.outOfEnergy();
+					return;
 				}
-				this.render();
+				log(r);
+				var bv = new BattleView(r,r);
+			}.bind(this));
+		},
+		getBattleList:function(){
+			ajax.send({action:'getBattleList'},function(r){
+				this.$el.html(this.template(r.content));
 			}.bind(this));
 		},
 		initialize:function(){
-
-			var params = {
-				action:'getDuelPartners',
-				toonName:this.model.get("name")
-			}
-			ajax.send(params,function(r){
-				this.context = r.content;
-				this.render();
-			}.bind(this));
-			this.render();
+			this.model = Backbone.Model.instances.toon;
+			this.getBattleList();
 		},
 		render:function(){
-			this.$el.html(this.template(this.context));
-			this.delegateEvents();
+
+			_.defer(function(){
+				this.delegateEvents();
+			}.bind(this));
 			return this;
 		}
 	});

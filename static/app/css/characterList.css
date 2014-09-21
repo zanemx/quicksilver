@@ -2,12 +2,9 @@
 	margin:auto;
 	text-align: center;
 }
-#characterList .characterFrame{
-	width: 200px;
-	margin: auto;
-	height: 80px;
-	border: 1px solid burlywood;
-	background: #814304;
-	margin-bottom: 10px;
-	border-radius: 30px;
+#characterList .characterFrameBox{
+	background: rgb(9,8,8);
+	margin-bottom: 8px;
+	border-radius: 10px;
+	border: 2px dashed rgba(255,102,0,0.2);
 }

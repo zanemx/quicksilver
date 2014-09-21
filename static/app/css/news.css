@@ -1,0 +1,13 @@
+#newsView{
+	text-align: left;
+}
+#newsView .alertFrame{
+	padding: 10px;
+	background: rgb(51, 50, 50);
+	margin: 0 4px 4px 4px;
+	border: 1px dashed rgb(129, 129, 129);
+	border-radius: 10px;
+}
+#newsView button{
+	float:right;
+}

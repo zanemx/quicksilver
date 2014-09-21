@@ -1,19 +1,12 @@
-<div class="mobile-grid-33">
-	<div>{{name}}</div>
-	<div>{{race}}</div>
-	<div>{{gender}}</div>
+<div class="mobile-push-5 mobile-grid-90 mobile-suffix-5 tablet-grid-100 grid-100">
+	<h6 class="cursor grid-25 mobile-grid-25 tablet-grid-25">stamina</h6>
+	<h6 class="grid-25 mobile-grid-25 tablet-grid-25">exp</h6>
+	<h6 class="grid-25 mobile-grid-25 tablet-grid-25">gold</h6>
+	<h6 class="cursor grid-25 mobile-grid-25 tablet-grid-25">essence</h6>
 </div>
-<div class="mobile-grid-33">
-	<div>Level: {{level}}</div>
-	<div>XP: {{exp}}</div>
-	<div>Energy: {{energy}}</div>
-</div>
-<div class="mobile-grid-33">
-	<div>Gold: {{gold}}</div>
-	<div>Essence: {{essence}}</div>
-	<div>Rank: {{rank}}</div>
-</div>
-
-<div class="mobile-grid-100">
-	<small>next in <span id="nextEnergyIn"></span></small>
+<div class="mobile-push-5 mobile-grid-90 mobile-suffix-5 tablet-grid-100 grid-100">
+	<small class="grid-25 mobile-grid-25 tablet-grid-25"><span id="statsEnergy">{{energy}}</span>/{{energyMax}}</small>
+	<small id="statsExp" class="grid-25 mobile-grid-25 tablet-grid-25"><span >{{exp}}/{{exp_to_next_level}}</span></small>
+	<small id="statsGold" style="color:yellow;" class="grid-25 mobile-grid-25 tablet-grid-25"><span >{{gold}}</span></small>
+	<small class="grid-25 mobile-grid-25 tablet-grid-25"><span id='statsEssence'>{{essence}}</span></small>
 </div>

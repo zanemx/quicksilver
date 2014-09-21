@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
+        
+        <title>Quest Maker Pro</title>
+        <!-- <link rel="stylesheet" href="static/app/css/reset.css"/> -->
+        <link rel="stylesheet" href="static/app/css/unsemantic-grid-responsive-tablet-no-ie7.css">
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+
+        <script>
+        	window.log = function(m){console.log(m);}
+        	$(function(){
+
+        		var app = {
+
+	        		chains:null,
+	        		quests:null,
+	        		npcs:null,
+
+	        		initialize:function(){
+						$("#createNewChain").click(this.createNewChain.bind(this));
+		    			$("#chainSubmit").click(this.chainSubmit.bind(this));
+						$("#createQuest").click(this.createNewQuest.bind(this));
+						$("#submitQuest").click(this.questSubmit.bind(this));
+		    			this.updateView();
+	        		},
+	        		questSubmit:function(){
+	        			var params = {
+	    					action:'editQuest',
+	    					name:$("#questName").val(),
+	    					description:$("#description").val(),
+	    					quest_chain_id:$("#chainKeyName").val(),
+	    					quest_link_id:$("#chainLink").val(),
+	    					questAction:$("#questAction").val()
+	    				}
+	    				if (params.name == ''){alert("add name");return;}
+	    				if (params.questAction == ''){alert("add quest action");return;}
+	    				if (params.description == ''){alert("add description");return;}
+	    				if (params.quest_chain_id == ''){alert("add chain id");return;}
+	    				if (params.quest_link_id == ''){alert("add link id number");return;}
+
+	    				ajax.send(params,function(r){
+	    					this.onView(r);
+	    					$("#chainForm").css("display",'none');
+		    				$("#questForm").css("display",'none');
+	    				}.bind(this));
+	        		},
+	        		chainSubmit:function(){
+	        			var params = {
+	    					action:'editChain',
+	    					name:$("#chainName").val(),
+	    					start:$("#chainStart").val(),
+	    					end:$('#chainEnd').val(),
+	    					location:$('#chainNpc').val()
+	    				}
+	    				if (params.start == ''){alert("add start description");return;}
+	    				if (params.end == ''){alert("add end description");return;}
+	    				if (params.name == ''){alert("add name");return;}
+
+	    				ajax.send(params,function(r){
+	    					this.onView(r);
+	    					$("#chainForm").css("display",'none');
+		    				$("#questForm").css("display",'none');
+	    				}.bind(this));
+	        		},
+	        		createNewChain:function(){
+	        			$("#chainForm").css("display",'block');
+	    				$("#questForm").css("display",'none');
+	    				var form  = $("#chainForm");
+	    				form.find('#chainName').val('');
+	    				form.find('#chainStart').val('');
+	    				form.find('#chainEnd').val('');
+	    				form.find('#chainNpc').val('');
+	        		},
+	        		createNewQuest:function(){
+	        			$("#chainForm").css("display",'none');
+		    			$("#questForm").css("display",'block');
+
+		    			var form = $("#questForm");
+	    				form.find("#questName").val('');
+	    				form.find("#description").val('');
+	    				form.find("#chainLink").val('');
+	    				form.find("#questAction").val('');
+	    				// form.find("#chainKeyName").val(quest.name);
+	        		},
+
+	        		updateView:function(){
+	        			ajax.send({action:'getQuestMakerView'},function(r){
+	        				this.onView(r);
+	        				$("#preloader").hide();
+		    				$("#wrapper").css("display",'block').hide().fadeIn('slow');
+	        			}.bind(this))
+	        		},
+
+	        		onView:function(r){
+	        			log(r);
+	        			$('#chainSelect').empty();
+	    				$("#questSelect").empty();
+	    				$("#chainKeyName").empty();
+	    				$("#chainNpc").empty();
+	    				chains = r.chainQuests;
+	    				quests = r.quests;
+	    				npcs = r.locations
+
+	    				// CHAIN SELECT 
+	    				$('#chainSelect')
+	    					.append( $('<option></option>').val('').html('Select Chain'))
+	    					.change(function(e){
+	    						var el = $(e.currentTarget);
+	    						this.loadChainView(el.val());
+	    					}.bind(this));
+	    				$.each(chains, function(val, data) {
+	    					if(data.name != undefined)
+	        					$('#chainSelect').append( $('<option></option>').val(data.name).html(data.name));
+	        			}.bind(this));
+
+	    				// QUEST SELECT
+	        			$('#questSelect')
+	        				.append( $('<option></option>').val('').html('Select Quest'))
+	        				.change(function(e){
+	    						var el = $(e.currentTarget);
+	    						this.loadQuestView(el.val());
+	    					}.bind(this));
+	    				$.each(quests, function(val, data) {
+	    					if(data.name != undefined)
+	        					$('#questSelect').append( $('<option></option>').val(data.name).html(data.name));
+	        			}.bind(this));
+
+	        			//QUEST CHAIN SELECT 
+	    				$('#chainKeyName')
+	    					.append( $('<option></option>').val('').html('Select Chain'));
+	    				$.each(chains, function(val, data) {
+	    					if(data.name != undefined)
+	        					$('#chainKeyName').append( $('<option></option>').val(data.name).html(data.name));
+	        			}.bind(this));
+
+	        			//CHAIN NPC SELECT
+	    				$('#chainNpc')
+	    					.append( $('<option></option>').val('').html('Select NPC'));
+	    				$.each(npcs, function(val, data) {
+							$('#chainNpc').append( $('<option></option>').val(data).html(data));
+	        			}.bind(this));
+	        		},
+
+	        		loadChainView:function(id){
+	        			var chain = _.find(chains,function(chain){
+	        				return chain.name == id;
+	        			});
+	        			log(chain);
+	        			var form  = $("#chainForm");
+	        			form.css("display",'block');
+	    				$("#questForm").css("display",'none');
+
+	    				form.find('#chainName').val(chain.name);
+	    				form.find('#chainStart').val(chain.startDescription);
+	    				form.find('#chainEnd').val(chain.endDescription);
+	    				form.find('#chainNpc').val(chain.location);
+
+	    				// quests in chain
+	    				form.find("#questsInChain").empty();
+	    				_.each(chain.quests,function(quest){
+	    					var li = $(document.createElement('li'));
+	    					li.text(quest.name);
+	    					form.find("#questsInChain").append(li).click(function(e){
+	    						this.loadQuestView($(e.currentTarget).text());
+	    					}.bind(this));
+	    				}.bind(this));
+	    				
+
+						
+	        		},
+	        		loadQuestView:function(id){
+	        			var quest = _.find(quests,function(quest){
+	        				return quest.name == id;
+	        			});
+	        			log(quest)
+	        			$("#chainForm").css("display",'none');
+	    				$("#questForm").css("display",'block');
+
+	    				var form = $("#questForm");
+	    				form.find("#questName").val(quest.name);
+	    				form.find("#description").val(quest.description);
+	    				// form.find("#chainLink").val(quest.quest_chain_id);
+	    				form.find("#chainKeyName").val(quest.quest_chain_id);
+	    				form.find("#questAction").val(quest.action);
+	        		},
+	    		}//app
+
+	    		app.initialize();
+        	});
+
+        	var ajax = {
+				send:function(params,callback){
+					$.post('/ajax',params,function(r){
+						var data = $.parseJSON(r);
+						if(callback){
+							callback(data);
+						}
+					});
+				}
+			}
+        </script>
+
+        <style>
+			html{
+				height:100%;
+				background: url('static/app/images/ui/nightatoll11680_low.jpg'); 
+			}
+			body{
+				/*background: #292721;*/
+				font-family:'MedievalSharp',sans-serif;
+				color:#ff6600;
+				text-shadow: 0px -1px 0px rgba(30, 30, 30, 0.8);
+				max-width: 500px;
+				height:100%;
+				text-align: center;
+				margin:auto;
+				/*background-color: rgba(0,0,0,0.4);*/
+				/*overflow-x:hidden;*/
+			}
+			li{
+				cursor:pointer;
+				list-style: none;
+			}
+			input,label,textarea{
+				/*float:left;*/
+				width:100%;
+			}
+			button{min-width: 120px;}
+			button, input[type=submit],select,input[type=number]{
+			background: url('static/app/css/slate.jpg');
+			cursor: pointer;
+			color:rgb(235,235,235);
+			/*font-weight: bold;*/
+			font-size: 1em;
+			/*padding: 6px;*/
+			/*text-shadow: 0px -1px 0px rgba(30, 30, 30, 0.8);*/
+			-webkit-border-radius: 10.636363636363637px;
+			-moz-border-radius: 10.636363636363637px;
+			border-radius: 10.636363636363637px;
+			/*background: rgb(210, 20, 20);*/
+			/*background: -moz-linear-gradient(90deg, rgb(210, 20, 20) 30%, rgb(250, 20, 20) 70%);*/
+			/*background: -webkit-linear-gradient(90deg, rgb(210, 20, 20) 30%, rgb(250, 20, 20) 70%);*/
+			/*background: -o-linear-gradient(90deg, rgb(210, 20, 20) 30%, rgb(250, 20, 20) 70%);*/
+			/*background: -ms-linear-gradient(90deg, rgb(210, 20, 20) 30%, rgb(250, 20, 20) 70%);*/
+			/*background: linear-gradient(0deg, rgb(210, 20, 20) 30%, rgb(250, 20, 20) 70%);*/
+			-webkit-box-shadow: 0px 2px 1px rgba(50, 50, 50, 0.75);
+			-moz-box-shadow:    0px 2px 1px rgba(50, 50, 50, 0.75);
+			box-shadow:         0px 2px 1px rgba(50, 50, 50, 0.75);
+		}
+		button{
+			background: url('static/app/css/slate.jpg');
+			font-family: "MedievalSharp";
+			font-weight: bold;
+			font-size: 1em;
+		}
+		button:focus{
+			outline: 0;
+		}
+        </style>
+        
+    </head>
+    <body>
+    	<div id="preloader">
+    		<h1>Loading</h1>
+    	</div>
+    	<div id="wrapper" style="display:none;">
+	    	<h1>Quest Maker Pro</h1>
+	    	<div>
+	    		<select name="" id="chainSelect">
+	    			<option value="">Select Chain</option>
+	    		</select>
+	    		
+	    		<small>or</small>
+	    		
+	    		<button id="createNewChain">Create New Chain</button>
+	    		<div class="clear"></div>
+	    		
+	    		<select id="questSelect">
+	    			<option value="">Select Quest</option>
+	    		</select>
+	    		
+	    		<small>or</small>
+	    		
+	    		<button id="createQuest">Create New Quest</button>
+	    		<div class="clear"></div>
+	    	</div>
+			<br>
+			<div id="chainForm" style="display:none;">
+				<div style="width:50%; float:left;">
+					<h2>Quest Chain Editor</h2>
+					<select style="float:left;" id="chainNpc">
+						<option value="">Select NPC</option>
+					</select>
+					<div class="clear"></div>
+					<input placeholder="Chain Name" id="chainName" type="text">
+					<div class="clear"></div>
+					<textarea placeholder="Chain Start Description" name="" id="chainStart" cols="30" rows="10"></textarea>
+					<div class="clear"></div>
+					<textarea placeholder="Chain End Description" name="" id="chainEnd" cols="30" rows="10"></textarea>
+					<div class="clear"></div>
+					<button id="chainSubmit" style="float:right;">Submit</button>
+				</div>
+				<div style="width:50%; float:left;">
+					<br>
+					<br>
+					<h4>Current Quests In Chain</h4>
+					<ul id="questsInChain"></ul>
+				</div>
+				
+
+			</div>
+
+			<div id="questForm" style="display:none;">
+				<h2>Quest Editor</h2>
+				<select style="float:left;" id="chainKeyName">
+					<option value="">Select Chain</option>
+				</select>
+				<!-- <input placeholder="Chain link id" type="number" id="chainLink" name="Quest Link id" min="1"> -->
+				<div class="clear"></div>
+				<input id="questName" placeholder='Quest Name' type="text">
+				<div class="clear"></div>
+				<input id="questAction" placeholder="Quest Action" type="text">
+				<div class="clear"></div>
+	    		<textarea placeholder="Quest Description" id='description' name="description" id="" cols="30" rows="10"></textarea>
+	    		<div class="clear"></div>
+	    		<button id="submitQuest" style="float:right;">Submit</button>
+			</div>
+		</div>
+    </body>
+</html>

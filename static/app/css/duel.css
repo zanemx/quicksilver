@@ -1,0 +1,22 @@
+#duelView table{
+	
+}
+#duelView tr{
+
+}
+#duelView td{
+	text-align: right;
+}
+#duelView td:nth-child(odd){
+	padding-left: 20px;
+}
+#duelView td:nth-child(odd):after{
+	content:":";
+}
+#duelView td:nth-child(even){
+	text-align: left;	
+}
+
+#duelView .battleReport{
+
+}

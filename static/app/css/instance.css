@@ -1,0 +1,46 @@
+#instanceView .monstersContainer{
+	width:128px;
+	height:113px;
+	overflow: hidden;
+	position: relative;
+	margin:auto;
+	margin-top: 18px;
+}
+#instanceView .monstersContainerInner{
+	position: absolute;
+	top:0;
+	left:0;
+
+	-webkit-transition:top 1s ease-in-out;
+	-moz-transition:top 1s ease-in-out;
+	-o-transition:top 1s ease-in-out;
+	transition:top 1s ease-in-out;
+}
+#instanceView .lifeMeter{
+	width: inherit;
+	height:inherit;
+	position: absolute;
+	top:0;
+	left:0;
+	background:red;
+	/*box-shadow: 0 0 10px 30px red;*/
+
+	-webkit-transform-origin: bottom;
+	-moz-transform-origin: bottom;
+	-o-transform-origin: bottom;
+	transform-origin: bottom;
+
+	-webkit-transform:scaley(0);
+	-moz-transform:scaley(0);
+	-o-transform:scaley(0);
+	transform:scaley(0);
+
+	-webkit-transition:-webkit-transform 0.5s ease-in-out;
+	-moz-transition:-moz-transform 0.5s ease-in-out;
+	-o-transition:-o-transform 0.5s ease-in-out;
+	transition:transform 0.5s ease-in-out;
+
+
+	
+	/*-webkit-transform: scaley(0);*/
+}

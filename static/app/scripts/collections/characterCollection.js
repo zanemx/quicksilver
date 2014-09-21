@@ -1,13 +1,13 @@
 define(['backbone','models/character'],function(Backbone,Character){
 	return Backbone.Collection.extend({
 
-		initialize:function(id){
-			this.id = id;
+		initialize:function(models,options){
+			this.userid=options.userid
 		},
 
 		model:Character,
 		url:function(){
-			return '/character?userid=' + this.id
+			return 'characters/' + this.userid;
 		}
 	});
 });

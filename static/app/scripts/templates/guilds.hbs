@@ -1,0 +1,16 @@
+<br>
+<h4>Quicksilver Guilds</h4>
+<br>
+
+{{#each this}}
+	<div class="guildFrame">
+		<h5>{{name}}</h5>
+		<h6>Rank {{rank}}</h6>
+		<h6>Leader - {{leader.name}}</h6>
+		{{#if canApply}}
+			<button _data="{{name}}" id="apply">Apply</button>
+		{{/if}}
+	</div>
+{{else}}
+	<h5>No Guilds</h5>
+{{/each}}

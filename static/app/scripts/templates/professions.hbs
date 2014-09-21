@@ -1,0 +1,133 @@
+
+
+<br>
+{{#if profession}}
+	<div class="professionFrame">
+		<div style="float:right; margin-left:20px;" class="qsicons {{profession}}"></div>
+		<button id="profession_unlearn">Unlearn</button>
+		<h5>{{capitalize profession}}</h5>
+		<div class="clear"></div>
+	</div>
+
+	<div class="grid-parent">
+		<h5>Resources</h5>
+		<div class="grid-33 tablet-grid-33 mobile-grid-33"></div><div class="qsicons mining"><div style="margin-top:30px; text-align:right; color:white;margin-right:4px;">{{resources.ore}}</div></div>
+		<div class="grid-33 tablet-grid-33 mobile-grid-33"></div><div class="qsicons herbalism"><div style="margin-top:30px; text-align:right; color:white;margin-right:4px;">{{resources.herbs}}</div></div>
+		<div class="grid-33 tablet-grid-33 mobile-grid-33"></div><div class="qsicons skinning"><div style="margin-top:30px; text-align:right; color:white;margin-right:4px;">{{resources.leather}}</div></div>
+	</div>
+	<br>
+
+	<div>
+		<h5>Crafting</h5>
+
+		<button id="regenerateRecipes">Regenerate for {{recipes.cost}} essence</button>
+		<div class="clear"></div>
+		<br>
+	
+		{{#each recipes.recipes}}
+			{{!-- ARMOR --}}
+			{{#ifCond this.type '==' 'armor'}}
+				<div class="marketItem">
+					<div style="margin-right:10px;float:left;"><span class="qsicons {{className}} {{grade}}-glow"></span></div>
+					<h6 style="float:left; color:{{color}}">{{title}}</h6>
+
+					<div style="text-align:right;float:right">
+						<h6>Materials</h6>
+						{{#if ore}}<div class="stat">Ore {{../../../resources.ore}}/{{ore}}</div>{{/if}}
+						{{#if herbs}}<div class="stat">Herbs {{../../../resources.herbs}}/{{herbs}}</div>{{/if}}
+						{{#if leather}}<div class="stat">Leather {{../../../resources.leather}}/{{leather}}</div>{{/if}}
+						{{!-- {{#if defense}}<div class="stat">defense +{{this.defense}}</div>{{/if}} --}}
+					</div>
+					
+					<br>
+					<div style="text-align:left; margin-left:10px; margin-top:6px; float:left">
+						{{#if strength}}<div class="stat">strength +{{this.strength}}</div>{{/if}}
+						{{#if intelligence}}<div class="stat">intelligence +{{this.intelligence}}</div>{{/if}}
+						{{#if endurance}}<div class="stat">stamina +{{this.endurance}}</div>{{/if}}
+						{{#if defense}}<div class="stat">defense +{{this.defense}}</div>{{/if}}
+					</div>
+					<div class="clear"></div>
+					<button class="makeItem" _data="{{@index}}" style="float:right">Make</button>
+					<div class="clear"></div>
+				</div>
+			{{/ifCond}}
+
+			{{!-- WEAPON --}}
+			{{#ifCond this.type '==' 'weapon'}}
+				<div class="marketItem">
+					<div style="margin-right:10px;float:left;"><span class="qsicons {{className}} {{grade}}-glow"></span></div>
+					<h6 style="float:left; color:{{color}}">{{title}}</h6>
+					
+					<div style="text-align:right;float:right">
+						<h6>Materials</h6>
+						{{#if ore}}<div class="stat">Ore {{../../../resources.ore}}/{{this.ore}}</div>{{/if}}
+						{{#if herbs}}<div class="stat">Herbs {{../../../resources.herbs}}/{{this.herbs}}</div>{{/if}}
+						{{#if leather}}<div class="stat">Leather {{../../../resources.leather}}/{{this.leather}}</div>{{/if}}
+						{{!-- {{#if defense}}<div class="stat">defense +{{this.defense}}</div>{{/if}} --}}
+					</div>
+
+					<br>
+					<div style="text-align:left; margin-left:10px; margin-top:6px; float:left">
+						{{#if strength}}<div class="stat">strength +{{this.strength}}</div>{{/if}}
+						{{#if intelligence}}<div class="stat">intelligence +{{this.intelligence}}</div>{{/if}}
+						{{#if endurance}}<div class="stat">stamina +{{this.endurance}}</div>{{/if}}
+						{{#if defense}}<div class="stat">defense +{{this.defense}}</div>{{/if}}
+					</div>
+					<div class="clear"></div>
+					<button class="makeItem" _data="{{@index}}" style="float:right">Make</button>
+					<div class="clear"></div>
+				</div>
+			{{/ifCond}}
+		{{/each}}
+	</div>
+
+	{{!-- <h5>Level {{level}} {{profession}}</h5>
+	<h6 id="profession_unlearn" class="textButton">unlearn</h6> --}}
+{{else}}
+	<h5>Select a Profession</h5>
+	<p>A profession will allow you to gather items in the world. These items can also be bought and sold at the auction vendor. You can only learn 1 profession.</p>
+	<br>
+	<div class="chooseProfessions">
+		{{!-- <div class="professionFrame">
+			<h5>Tailor</h5
+			<p>A nice desc</p>
+		</div>
+		<div class="professionFrame">
+			<h5>Leather Worker</h5>
+			<p>A nice desc</p>
+		</div> --}}
+
+		<div class="professionFrame">
+			<div style="float:right; margin-left:20px;" class="qsicons skinning"></div>
+			<button class="learnProfession" _id="skinning">Learn</button>
+			<h5>Skinning</h5>
+			<p>Your able to skin fur bearing animals you slay.</p>
+			<div class="clear"></div>
+		</div>
+
+		<div class="professionFrame">
+			<div style="float:right; margin-left:20px;" class="qsicons mining"></div>
+			<button class="learnProfession" _id="mining">Learn</button>
+			<h5>Mining</h5>
+			<p>Your keen sense of earth energy allows you to mine ore normally overlooked.</p>
+			<div class="clear"></div>
+		</div>
+
+		<div class="professionFrame">
+			<div style="float:right; margin-left:20px;" class="qsicons herbalism"></div>
+			<button class="learnProfession" _id="herbalism">Learn</button>
+			<h5>Herbalism</h5>
+			<p>You become something of a bloodhound crossed with a honey bee. Your able to seek out plants, flowers and roots with the most subtle breeze.</p>
+			<div class="clear"></div>
+		</div>
+		
+		{{!-- <div class="professionFrame">
+			<h5>Archeology</h5>
+			<p>A nice desc</p>
+		</div>
+		<div class="professionFrame">
+			<h5>Engineer</h5>
+			<p>A nice desc</p>
+		</div> --}}
+	</div>
+{{/if}}

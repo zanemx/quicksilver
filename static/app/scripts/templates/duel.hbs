@@ -1,8 +1,15 @@
+<br>
 {{#each this}}
-	<div class="box">
-		<h2>{{name}}</h2>
-		<h3>level {{level}}</h3>
-		<button style="float:right;" name="{{name}}" class="doBattleBtn">Do Battle</button>
-		<div class="clear"></div>
+	<div class="mobile-grid-33 tablet-grid-33 grid-33">
+		<div>
+			<div style="position:relative;text-align:left;" class="imageFrame npcs {{className}}">
+				<div>{{name}}</div>
+				<div>lvl {{level}}</div>
+				<button class="doBattleButton" style="position:absolute; bottom:0;min-width:0;width:100%;"  _id="{{id}}">Battle</button>
+			</div>
+		</div>
 	</div>
+
+{{else}}
+<h5>Your the only player in the game dude.</h5>
 {{/each}}

@@ -1,0 +1,22 @@
+#marketView .npcImage{
+	max-height: 240px;
+	border-radius: 3px;
+	float:left;
+	margin-right: 10px;
+}
+#marketView .npcDetails p{
+	text-indent: 2em;
+	line-height: 1.4em;
+}
+#marketView .marketItem{
+	padding: 2px;
+	border: 2px solid rgb(100, 100, 100);
+	border-radius: 10px;
+	margin-bottom: 2px;
+	background: rgb(70, 70, 70);
+}
+#marketView .marketItemIcon{
+	border-radius: 10px;
+	float:left;
+	margin-right: 10px;
+}

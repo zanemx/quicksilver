@@ -1,0 +1,16 @@
+<data>
+	<npc>Sam The Merchant</npc>
+	<chain>
+		<title>The Bullhounds</title>
+		<start>"Hello {{class}}. Have you come to help with the bullhound roundup? King Stavian has tasked me with capturing enough wild bullhounds for his new league of beast masters. Amon from the training grounds spoke highly of you. Are you willing to help?"</start>
+		<end>Well done {{name}}. I'll be sure to remind King Stavian of your efforts.</end>
+		<quest>
+			<title>Preparations</title>
+			<desc>Hunting for bullhounds is not a walk in the park. You'll need to study maps, sharpen your weapons and have your wits about you.</desc>
+		</quest>
+		<quest>
+			<title>A Little Training</title>	
+			<desc>Having made all the preparations you present your self to Sam. He makes a crooked smile and tells you sharply. "Sord at the ready!"</desc>
+		</quest>
+	</chain>
+</data>

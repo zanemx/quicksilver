@@ -1,0 +1,7 @@
+#statusView textarea{
+	resize: none;
+	height: 92px;
+	font-size: 1.1em;
+	border-radius: 4px;
+	color: red;
+}

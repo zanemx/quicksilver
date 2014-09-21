@@ -1,0 +1,46 @@
+<br>
+{{#each this.active_dungeons}}
+	<div _name="{{this.name}}" style="" class="dungeonFrame">
+		<h5 style="float:left;">{{this.name}}</h5>
+		{{#if this.complete}}
+			<div style="float:right;">
+				<div class="progress-bar" style="max-width:200px; min-width:120px;">
+					<div style="width:100%" class="progress-bar-fill"></div>
+					<div class="progress-bar-label" style="color:lime; margin-left:40px;">complete</div>
+				</div>
+			</div>
+		{{else}}
+			<div style="float:right;">
+				<div class="progress-bar" style="max-width:200px; min-width:120px;">
+					<div style="width:{{progress}}%" class="progress-bar-fill"></div>
+					<div class="progress-bar-label" style="margin-left:40px;"><span class="">{{progress}}%</span></div>
+				</div>
+			</div>
+		{{/if}}
+		
+		<div class="clear"></div>
+		<br>
+		<button id='enterDungeon' _id="{{name}}" style="float:right;">Continue</button>
+		<button id='resetDungeon' _id="{{name}}" style="float:right;">Reset</button>
+		{{!-- <button class='enterDungeon' style="float:right;">Abort</button> --}}
+		<div class="clear"></div>
+	</div>
+{{/each}}
+{{#each this.dungeons}}
+	<div _name="{{this}}" class="dungeonFrame">
+		<h5>{{this}}</h5>
+		<div class="">
+			<label for="">Difficulty</label>
+			<select name="">
+				<option value="easy">Easy</option>
+				<option value="normal">Normal</option>
+				<option value="hard">Hard</option>
+				<option value="heroic">Heroic</option>
+			</select>
+		</div>
+		<br>
+		<button class='setupDungeon' style="float:right;">start</button>
+		<div class="clear"></div>
+	</div>
+{{/each}}
+<div id="instanceViewContainer"></div>

@@ -1,0 +1,176 @@
+#explorePopover{
+	width: 300px;
+	/*height: 300px;*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: black;
+	border: 4px solid rgb(61, 61, 61);
+	border-radius: 6px;
+	padding: 20px;
+}
+.alertSidebar{
+	background: rgb(71, 71, 71);
+	width: 48px;
+	height: 48px;
+	position: absolute;
+	border-radius: 0 20% 50% 0;
+	color: rgb(209, 209, 0);
+	font-size: xx-large;
+	font-family: Verdana, Tahoma, sans-serif;
+	line-height: 48px;
+	border: 2px solid rgb(209, 209, 0);
+	border-left: none;
+	cursor:pointer;
+	top:50%;
+	left:-50px;
+
+	-webkit-transition:left 0.1s ease-out;
+	-moz-transition:left 0.1s ease-out;
+	-o-transition:left 0.1s ease-out;
+	transition:left 0.1s ease-out;
+}
+.showAlertSidebar{
+	left:0;
+}
+.loadingIndicator{
+	width:100%;
+	height:100%;
+	position: absolute;
+	top:0;
+	left:0;
+	background: rgba(0,0,0,0.2);
+}
+.spinner{
+	top:50%;
+	left:50%;
+}
+.popup {
+	/*position: absolute;*/
+	margin:auto;
+	width: 320px;
+	/*max-width: 400px;*/
+	height: 160px;
+	padding: 0px;
+	background: white;
+	-webkit-border-radius: 11px;
+	-moz-border-radius: 11px;
+	border-radius: 11px;
+}
+.animationBlit{
+	background: black;
+	padding: 3px;
+	border: 1px solid rgb(121, 119, 115);
+	border-radius: 3px;
+
+	/*-webkit-transition:top 4s ease-out;
+	-moz-transition:top 4s ease-out;
+	-o-transition:top 4s ease-out;
+	transition:top 4s ease-out;*/
+
+	pointer-events:none;
+
+	/*-webkit-transform-origin: bottom;*/
+	/*-moz-transform-origin: bottom;*/
+	/*-o-transform-origin: bottom;*/
+	/*transform-origin: bottom;*/
+
+	-webkit-transform:scale(0);
+	-moz-transform:scale(0);
+	-o-transform:scale(0);
+	transform:scale(0);
+
+	-webkit-transition:-webkit-transform 0.1s ease;
+	-moz-transition:-moz-transform 0.1s ease;
+	-o-transition:-o-transform 0.1s ease;
+	transition:transform 0.1s ease;
+
+	-webkit-transform:scale(1.5);
+	-moz-transform:scale(1.5);
+	-o-transform:scale(1.5);
+	transform:scale(1.5);
+
+	/*-webkit-transform:scale(1.5);*/
+}
+.friendsList{
+	position: absolute;
+	top:0;
+	left:0;
+	background: rgba(0,0,0,0.7);
+	width:100%;
+	height:100%;
+}
+.friendsList > img{
+
+}
+
+/*LOOT FRAME*/
+.lootFrameClone{
+	display:none;
+	margin:auto;
+	width: 300px;
+	/*height: 100px;*/
+	-webkit-border-radius: 11px;
+	-moz-border-radius: 11px;
+	border-radius: 11px;
+	border: 1px solid rgb(184, 168, 168);
+	background:
+		url('../images/ui/corner.png') left top no-repeat,
+		url('../images/ui/cornerTopRight.png') right top no-repeat,
+		url('../images/ui/cornerBottomRight.png') right bottom no-repeat,
+		url('../images/ui/cornerBottomLeft.png') left bottom no-repeat;
+	background-color: rgba(0,0,0,0.8);
+	
+}
+.lootFrameIcon{
+	margin: 20px;
+	margin-left: 40px;
+	float:left;
+}
+.lootFrameContent{
+	margin-top:30px;
+
+}
+.lootFrameOkButton{
+	float:right;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+/*ITEM DETAILS FRAME*/
+.itemDetailsFrameClone{
+	display:none;
+	margin:auto;
+	width: 300px;
+	/*height: 100px;*/
+	-webkit-border-radius: 11px;
+	-moz-border-radius: 11px;
+	border-radius: 11px;
+	border: 1px solid rgb(184, 168, 168);
+	background:
+		url('../images/ui/corner.png') left top no-repeat,
+		url('../images/ui/cornerTopRight.png') right top no-repeat,
+		url('../images/ui/cornerBottomRight.png') right bottom no-repeat,
+		url('../images/ui/cornerBottomLeft.png') left bottom no-repeat;
+	background-color: rgba(0,0,0,0.8);
+}
+.itemDetailsFrameIcon{
+	margin: 20px;
+	margin-left: 40px;
+	float:right;
+}
+.itemDetailsFrameContent{
+	margin:30px;
+
+}
+.itemDetailsFrameOkButton{
+	margin-right: 10px;
+	margin-bottom: 10px;
+	float:right;
+}
+.itemDetailsFrameStats{
+	margin-left: 40px;
+}
+.lootFrameStats{
+	margin-left: 40px;
+}

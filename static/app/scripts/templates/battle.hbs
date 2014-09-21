@@ -1,0 +1,51 @@
+<div class="cornerFrames"></div>
+<br>
+<h5>BATTLE!</h5>
+<br>
+{{!-- <div class="note">level {{level}}</div> --}}
+
+<div class="mobile-grid-45 tablet-grid-45 grid-45">
+	<h6 id='heroName'>{{p1.name}}</h6>
+	
+	<div style="position:relative;" class="party">
+		<div style='position:relative;margin-bottom:-3px;'><div class="hero npcs {{p1.className}}_medium_landscape"></div></div>
+		
+		{{!-- party members --}}
+		{{#each party}}
+			<div style='position:relative;margin-bottom:-3px;'><div class="hero npcs {{p1.className}}_medium_landscape"><h6 style="background:rgba(0,0,0,0.5); font-size:xx-small;font-family:Verdana;">{{p1.name}}</h6></div></div>
+		{{/each}}
+
+		<div id="heroProgressBar" class="progress-bar" style="max-width:200px; width:98px;"><div id="heroLifeBar" class="progress-bar-fill"></div><div class="progress-bar-label"><div class="stat">hp <span id="hero_hp">{{p1.calculated.hp}}</span></div></div></div>
+	</div>
+	<div class="smallCornerFrames"></div>
+	<div class="mobile-grid-100 tablet-grid-100 grid-100">
+</div>
+
+</div>
+<div class="mobile-grid-10 tablet-grid-10 grid-10"><h5 style="margin-top:30px; font-size:xx-large;">vs</h5></div>
+
+
+{{!-- mob stats  --}}
+<h6 style="color:{{p2.color}}" id='mobName'>{{p2.name}}</h6>
+<div class="mobile-grid-45 tablet-grid-45 grid-45">
+	<div class="mob monstersContainer {{p2.color}}-glow">
+		<div class="monstersContainerInner">
+			{{!-- {{#each this.progression}} --}}
+					<div class="monsters {{p2.className}}"></div>
+					{{!-- <div>
+						<div class="stat">defense {{defense}}</div>
+						<div class="stat">strength {{strength}}</div>
+						<div class="stat">intelligence {{intelligence}}</div>
+						<div class="stat">stamina {{endurance}}</div>
+					</div> --}}
+			{{!-- {{/each}} --}}
+		</div>
+		<div style="position:absolute;top:0;left:0;" class="smallCornerFrames"></div>
+		
+	</div>
+	<div id="mobProgressBar" class="progress-bar" style="max-width:200px; width:120px;"><div id="mobLifeBar" class="progress-bar-fill"></div><div class="progress-bar-label"><div class="stat">hp <span id="mob_hp">{{p2.calculated.hp}}</span></div></div></div>
+</div>
+
+<div class="clear"></div>
+<br>
+<button style="max-width:150px;" class="mobile-grid-100 tablet-grid-100 grid-100" id="battleOk">Skip</button>

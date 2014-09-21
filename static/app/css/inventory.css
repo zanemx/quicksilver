@@ -1,0 +1,33 @@
+#inventoryView .inventoryContainer{
+	/*border:3px solid grey;*/
+	/*border-radius: 10px;*/
+
+}
+#inventoryView .inventoryItem{
+	/*display: inline-block;*/
+	/*background: rgba(0,0,0,0.5);*/
+	/*text-align: left;*/
+	/*padding:20px;*/
+	/*width: 80%;*/
+	/*margin: auto;*/
+	/*margin-top: 20px;*/
+	/*border: 2px solid rgb(92, 59, 0);*/
+	/*border-radius:10px;*/
+	/*position: relative;*/
+	/*margin-bottom:2px;*/
+	float:left;
+	margin:0 2px 0 0;
+}
+#inventoryView .inventoryItem > img{
+	
+	/*margin-right: 10px;*/
+}
+/*#inventoryView .inventoryItem > h6{
+	line-height: 3em;
+	white-space: nowrap;
+	overflow: hidden;
+}*/
+
+#inventoryView .inventoryButtons{
+	 visibility:hidden;
+}
