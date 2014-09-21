@@ -31,7 +31,6 @@ define(
 		'views/crafting',
 		'views/auctionbuy',
 		'views/auctionsell',
-		'views/navigation',
 
 	],
 	function(
@@ -67,8 +66,7 @@ define(
 		ProfessionView,
 		CraftingView,
 		AuctionBuyView,
-		AuctionSellView,
-		NavigationView
+		AuctionSellView
 	){
 	return Backbone.View.extend({
 
@@ -76,8 +74,55 @@ define(
 		className:'grid-100 tablet-grid-100 mobile-grid-100 grid-parent',
 		template:Handlebars.compile(template),
 		currentView:null,
-		navigationView:null,
 		viewParams:{},
+
+		navtree:{
+			back:null,
+			home:{
+				back:null,
+				character:{
+					back:null,
+					gear:null,
+					attributes:null,
+					inventory:null
+					// profession:null
+				},
+				guild:{
+					back:null,
+					create:null,
+					benefits:null,
+					diplomacy:null
+				},
+				news:null
+			},
+			adventure:{
+				back:null,
+				quest:null,
+				dueling:null,
+				dungeon:{
+					back:null,
+					party:null,
+					dungeons:null,
+					almanac:null
+				}
+			},
+			city:{
+				back:null,
+				market:{
+					back:null,
+					equipment:null,
+					mounts:null,
+					potions:null
+				},
+				guilds:null,
+				crafting:{
+					back:null,
+					profession:null,
+					buy:null,
+					sell:null
+				}
+			}
+		},
 
 		navstack:null,
 		last_navstack:null,
@@ -87,7 +132,12 @@ define(
 		views:{},
 
 		events:{
-
+			// 'click #logout':'onLogout',
+			'click .inviteFriends':'onInviteFriends',
+			'click .main_navButton':'onNavClick',
+			'click .alertSidebar':'onAlertSidebar',
+			'click .market':'onMarket',
+			'click .adventure':'onAdventure'
 		},
 		onMarket:function(){
 			this.loadSubView('city');
@@ -321,18 +371,16 @@ define(
 
 		initialize:function(){
 
+			log("i got yo yoed");
 
-			// this.navstack = _.keys(this.navtree);
-			// this.lastNavTree = this.navtree;
+			this.navstack = _.keys(this.navtree);
+			this.lastNavTree = this.navtree;
 			
 
-			this.constructor.__super__.initialize.apply(this);
+			// this.constructor.__super__.initialize.apply(this);
 			// this.__super__();
 			window.view= this;
-
-			this.navigationView = new NavigationView;
-
-			// this.views = {}
+			this.views = {}
 			this.model = Backbone.Model.instances.toon;
 			vent.on('level_up',function(){
 				var level = parseInt(this.model.get('level')) + 1;
@@ -341,8 +389,8 @@ define(
 			this.statsView = new StatsView;
 			this.render();
 
-			// // load default view
-			// this.loadSubView('lore');
+			// load default view
+			this.loadSubView('lore');
 
 		},
 		render:function(){
@@ -350,14 +398,13 @@ define(
 			this.$el.html(this.template({}));
 			_.defer(function(){
 				this.delegateEvents();
-				// this.updateNav();
+				this.updateNav();
 			}.bind(this));
 			// _.defer(this.loadLastView.bind(this));
 
 			// ADD el TO DOM BEFORE REFERENCING ELEMENTS WITH JQUERY
 			$(".wrapper").html(this.el);
 			$("#statsContainer").html(this.statsView.el);
-			$("#navigation-view-container").append(this.navigationView.el);
 			return this;
 		}
 	});

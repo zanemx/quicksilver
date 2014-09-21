@@ -1,4 +1,4 @@
-define(['backbone','handlebars','text!templates/home.hbs','ajax','moment','views/character','views/guild','views/news'],function(Backbone,Handlebars,template,ajax,moment,CharacterView,GuildView,NewsView){
+define(['backbone','handlebars','text!templates/home.hbs','ajax','moment','views/character','views/guild','views/news','views/navigation'],function(Backbone,Handlebars,template,ajax,moment,CharacterView,GuildView,NewsView,NavigationView){
 	return Backbone.View.extend({
 		id:'homeView',
 		className:'mobile-grid-100 tablet-grid-100 grid-100	grid-parent',

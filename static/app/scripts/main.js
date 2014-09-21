@@ -671,6 +671,9 @@ require(['buzz'],function(buzz){
 		AudioManager.hasWebAudio=Boolean(AudioManager.context);
 	};
 	AudioManager.play_webAudioContext=function(id,loop,volume){
+
+		return;
+
 		if(!AudioManager.context){
 			AudioManager.createContext();
 		}
@@ -685,9 +688,9 @@ require(['buzz'],function(buzz){
 		if(loop){
 			sound.source.loop=true;
 		}
-		log("Break Here");
-		debugger;
-		var node=AudioManager.context.createGainNode();
+		// log("Break Here");
+		// debugger;
+		var node=AudioManager.context.createGain();
 		sound.source.connect(node);
 		node.gain.value=volume=="undefined"?1:volume;
 		sound.source.connect(node);
