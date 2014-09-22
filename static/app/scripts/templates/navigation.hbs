@@ -1,13 +1,80 @@
-<nav class="vertical">
-    <ul>
-      <li>
-        <a href="#">Home</a>
-	  </li>
-	   <li>
-        <a href="#">Blog</a>
-	  </li>
-	   <li>
-        <a href="#">Work</a>
-	  </li>
-	</ul>
-</nav>
+<div id="nav-container">
+	<nav>
+		<br>
+	   	<br>
+
+	    <ul>
+	   			<li><button>logout</button></li>
+		   	<li style="text-align:center;">Home</li>
+			   	<li><button>gear</button></li>
+		   		<li><button>inventory</button></li>
+				<li><button>attributes</button></li>
+				{{!-- <li><button>talents</button></li> --}}
+
+		   	<li style="text-align:center;">Adventure</li>
+			   	<li><button>quest</button></li>
+				<li><button>dueling</button></li>
+				<li><button>dungeons</button></li>
+
+		   	<li style="text-align:center;">City</li>
+		   		<li><button>market</button></li>
+				<li><button>guild</button></li>
+				<li><button>lore</button></li>
+		
+		</ul>
+	</nav>
+</div>
+
+{{!-- //default view
+				case 'lore':this.addSubView('lore',new LoreView);break;
+
+				// top level navigation views
+				case 'home':this.addSubView('home',new HomeView);break;
+				case 'adventure':this.addSubView('adventure',new AdventureView);break;
+				case 'city':this.addSubView('city',new CityView);break;
+
+					case 'crafting':this.addSubView('crafting',new CraftingView);break;
+
+						case 'profession':this.addSubView('profession',new ProfessionView);break;
+						case 'buy':this.addSubView('buy',new AuctionBuyView);break;
+						case 'sell':this.addSubView('sell',new AuctionSellView);break;
+
+				// home views
+				case 'character':this.addSubView('character',new CharacterView);break;
+				case 'guild': this.addSubView('guild',new GuildView);break;
+				case 'news': this.addSubView('news',new NewsView);break;
+
+					// character views
+					case 'attributes': this.addSubView('attributes',new AttributesView);break;
+					case 'gear':this.addSubView('gear',new GearView);break;
+					case 'inventory':this.addSubView('inventory',new InventoryView);break;
+					case 'talents':this.addSubView('talents',new TalentView);break;
+
+					//guild views
+					case 'create': this.addSubView('create', new CreateGuildView);break;
+					case 'manage': this.addSubView('manage',new MyGuildView);break;
+					case 'benefits': this.addSubView('benefits',new GuildBenefitsView);break;
+					case 'diplomacy': this.addSubView('diplomacy',new GuildDiplomacy);break;
+
+				// adventure views
+				case 'quest':this.addSubView('quest',new MapView);break;
+				case 'dueling': this.addSubView('dueling',new DuelView);break;
+				case 'dungeon': this.addSubView('dungeon',new DungeonView);break;
+
+					case 'party': this.addSubView('party',new PartyView);break;			
+					case 'dungeons': this.addSubView('dungeons',new DungeonListView);break;
+					case 'almanac': this.addSubView('almanac',new AlmanacView);break;
+
+				// city views
+				case 'market':this.addSubView('market',new MarketView);break;
+
+					case 'equipment':
+						log('sort market view');
+						break;
+					case 'mounts':
+						break;
+					case 'potions':
+						break;
+
+
+				case 'guilds':this.addSubView('guilds',new GuildsView);break; --}}

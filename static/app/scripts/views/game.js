@@ -87,7 +87,7 @@ define(
 		views:{},
 
 		events:{
-
+			"click button":"onNavClick"
 		},
 		onMarket:function(){
 			this.loadSubView('city');
@@ -110,19 +110,37 @@ define(
 		},
 		onNavClick:function(e){
 			var el= $(e.currentTarget);
-			var key = el.data('key');
-			this.loadSubView(key);
-			this.updateNav(key);
+			log(el.text());
+			this.loadView(el.text());
+			// var key = el.data('key');
+			// this.loadSubView(key);
+			// this.updateNav(key);
 			AudioManager.play('tick');
+		},
+		loadView:function(view){
+
+			//close nav
+			this.navigationView.close();
+
+			if(view == "characters"){
+				this.onLogout();
+				return;
+			}
+
+			this.cacheSubView(view);
+			if(!this.views[view]){
+				this.cacheSubView(view);
+			}
+			$("#subView").html(this.views[view].render(this.viewParams).el);
 		},
 		loadSubView:function(view){
 			// log('loading ' + view + ' view');
 
-			log(this.nav_history);
+			// log(this.nav_history);
 
-			if(view == 'back'){
+			if(view == "characters"){
 				if(this.nav_history.length == 0){
-					this.onLogout();return;	
+					this.onLogout();
 					return;
 				}
 				else if(this.nav_history.length==1){
@@ -162,58 +180,45 @@ define(
 		cacheSubView:function(view){
 			switch(view){
 
-				//default view
 				case 'lore':this.addSubView('lore',new LoreView);break;
-
-				// top level navigation views
 				case 'home':this.addSubView('home',new HomeView);break;
 				case 'adventure':this.addSubView('adventure',new AdventureView);break;
 				case 'city':this.addSubView('city',new CityView);break;
-
-					case 'crafting':this.addSubView('crafting',new CraftingView);break;
-
-						case 'profession':this.addSubView('profession',new ProfessionView);break;
-						case 'buy':this.addSubView('buy',new AuctionBuyView);break;
-						case 'sell':this.addSubView('sell',new AuctionSellView);break;
-
+				case 'crafting':this.addSubView('crafting',new CraftingView);break;
+				case 'profession':this.addSubView('profession',new ProfessionView);break;
+				case 'buy':this.addSubView('buy',new AuctionBuyView);break;
+				case 'sell':this.addSubView('sell',new AuctionSellView);break;
 				// home views
 				case 'character':this.addSubView('character',new CharacterView);break;
 				case 'guild': this.addSubView('guild',new GuildView);break;
 				case 'news': this.addSubView('news',new NewsView);break;
-
-					// character views
-					case 'attributes': this.addSubView('attributes',new AttributesView);break;
-					case 'gear':this.addSubView('gear',new GearView);break;
-					case 'inventory':this.addSubView('inventory',new InventoryView);break;
-					case 'talents':this.addSubView('talents',new TalentView);break;
-
-					//guild views
-					case 'create': this.addSubView('create', new CreateGuildView);break;
-					case 'manage': this.addSubView('manage',new MyGuildView);break;
-					case 'benefits': this.addSubView('benefits',new GuildBenefitsView);break;
-					case 'diplomacy': this.addSubView('diplomacy',new GuildDiplomacy);break;
-
+				// character views
+				case 'attributes': this.addSubView('attributes',new AttributesView);break;
+				case 'gear':this.addSubView('gear',new GearView);break;
+				case 'inventory':this.addSubView('inventory',new InventoryView);break;
+				case 'talents':this.addSubView('talents',new TalentView);break;
+				//guild views
+				case 'create': this.addSubView('create', new CreateGuildView);break;
+				case 'manage': this.addSubView('manage',new MyGuildView);break;
+				case 'benefits': this.addSubView('benefits',new GuildBenefitsView);break;
+				case 'diplomacy': this.addSubView('diplomacy',new GuildDiplomacy);break;
 				// adventure views
 				case 'quest':this.addSubView('quest',new MapView);break;
 				case 'dueling': this.addSubView('dueling',new DuelView);break;
 				case 'dungeon': this.addSubView('dungeon',new DungeonView);break;
 
-					case 'party': this.addSubView('party',new PartyView);break;			
-					case 'dungeons': this.addSubView('dungeons',new DungeonListView);break;
-					case 'almanac': this.addSubView('almanac',new AlmanacView);break;
-
+				case 'party': this.addSubView('party',new PartyView);break;			
+				case 'dungeons': this.addSubView('dungeons',new DungeonListView);break;
+				case 'almanac': this.addSubView('almanac',new AlmanacView);break;
 				// city views
 				case 'market':this.addSubView('market',new MarketView);break;
-
-					case 'equipment':
-						log('sort market view');
-						break;
-					case 'mounts':
-						break;
-					case 'potions':
-						break;
-
-
+				case 'equipment':
+					log('sort market view');
+					break;
+				case 'mounts':
+					break;
+				case 'potions':
+					break;
 				case 'guilds':this.addSubView('guilds',new GuildsView);break;
 
 
@@ -234,101 +239,15 @@ define(
 			// Backbone.history.navigate('/',{trigger:true});
 			Backbone.history.navigate('#characterlist/' + this.model.get("user"),{trigger:true});
 		},
-		loadLastView:function(){
-			var lastView = window.localStorage.getItem("quicksilver_save_last_game_subView");
-			if(lastView)
-				this.loadSubView(lastView);
-			else
-				this.loadSubView('home');
-		},
-
-		
-		updateNav:function(target){
-
-			
-			if(target){
-				if(this.nav_history[0] == target){return;}
-				if(this.nav_history.length == 0 && target == 'back'){
-					// this.onLogout();return;	
-				}else if(target == 'back'){
-
-					this.nav_history.pop();
-
-					var tree = this.navtree;
-					_.each(this.nav_history.reverse(),function(key){
-						var t = tree[key];
-						if(t) tree = t;
-					});
-					this.lastNavTree = tree;
-					this.navstack = _.keys(tree);
-					this.drawNav();
-
-				}else{
-					
-					if(this.lastNavTree[target]){
-						this.nav_history.unshift(target);
-
-						var tree = this.navtree;
-						_.each(this.nav_history.reverse(),function(key){
-							var t = tree[key];
-							if(t) tree = t;
-						});
-						this.lastNavTree = tree;
-						this.navstack = _.keys(tree);
-						this.drawNav();
-					}else{
-						// just draw content area ...don't update nav bar
-					}
-				}
-			}else{
-				this.drawNav();
-			}
-
-			this.last_navstack = this.navstack;
-
-			// log(this.nav_history);
-			
-		},
-		drawNav:function(){
-
-			var nav = $("nav");
-			nav.empty();
-
-
-			for(var i = 0; i < this.navstack.length;i++){
-				var n = this.navstack[i];
-				var data = n;
-				var cls = 'grid-25 tablet-grid-25 mobile-grid-25';
-				if(n=='back'){
-					cls = 'grid-25 tablet-grid-25 mobile-grid-25';
-					n='back';
-				}
-
-				var div = $(document.createElement('div')).addClass(cls).css({
-					'padding':'0px'
-				});
-				var btn = $(document.createElement('button')).text(n).addClass("main_navButton").css({
-					'width':'100%',
-					'min-width':'0px',
-					'margin':'auto'
-				}).data('key',data);
-				div.append(btn);
-				nav.append(div);
-			}
-
-			// log(this.nav_history);
-		},
 
 		initialize:function(){
-
-
-			// this.navstack = _.keys(this.navtree);
-			// this.lastNavTree = this.navtree;
-			
+			var self = this;
 
 			this.constructor.__super__.initialize.apply(this);
 			// this.__super__();
 			window.view= this;
+
+			//key to open menu
 
 			this.navigationView = new NavigationView;
 
@@ -344,9 +263,47 @@ define(
 			// // load default view
 			// this.loadSubView('lore');
 
+			//listen for touch events 
+			// $(document).on("swiperight",function(event){
+			// 	log("i got swipped");
+			// 	alert("swipe right");
+			// 	self.navigationView.open();
+			// });
+			$(document).keydown(function(e){
+				var code = e.keyCode;
+				log(code);
+				if(code == 32){//spacebar 
+					self.navigationView.open();
+				}
+			});
+
+			var startX = 0;
+			document.addEventListener("touchstart",function(e){
+				log(e);
+				e.preventDefault();
+				var touch = e.touches[0];
+				startX = touch.pageX;
+			});
+			document.addEventListener("touchend",function(e){
+				var touch = e.changedTouches[0];
+				if(startX + 40 < touch.pageX){//right swipe
+					self.navigationView.open();
+				}else if(startX - 40 > touch.pageX){//left swipe
+					self.navigationView.close();
+				}
+			});
+			document.addEventListener("mousedown",function(e){
+				startX = e.x;
+			});
+			document.addEventListener("mouseup",function(e){
+				if(startX + 40 < e.x){//right swipe
+					self.navigationView.open();
+				}else if(startX - 40 > e.x){//left swipe
+					self.navigationView.close();
+				}
+			});
 		},
 		render:function(){
-			
 			this.$el.html(this.template({}));
 			_.defer(function(){
 				this.delegateEvents();
@@ -358,6 +315,13 @@ define(
 			$(".wrapper").html(this.el);
 			$("#statsContainer").html(this.statsView.el);
 			$("#navigation-view-container").append(this.navigationView.el);
+
+			$("*").on("swiperight",function(event){
+				log("i got swipped");
+				alert("swipe right");
+				self.navigationView.open();
+			});
+
 			return this;
 		}
 	});
